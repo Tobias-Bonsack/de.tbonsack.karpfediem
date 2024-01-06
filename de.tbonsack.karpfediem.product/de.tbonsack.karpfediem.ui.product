@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="de.tbonsack.karpfediem.ui" id="de.tbonsack.karpfediem.ui.product" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="1.0.0.qualifier" type="mixed" includeLaunchers="true">
+<product name="KarpfeDiem" uid="KarpfeDiem" id="de.tbonsack.karpfediem.ui.product" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="0.0.1" type="mixed" includeLaunchers="true" autoIncludeRequirements="true">
 
    <configIni use="default">
    </configIni>
@@ -15,6 +15,15 @@
 
    <windowImages/>
 
+   <launcher>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
    <plugins>
       <plugin id="de.tbonsack.karpfediem.ui"/>
    </plugins>
@@ -22,5 +31,6 @@
    <features>
       <feature id="org.eclipse.e4.rcp"/>
    </features>
+
 
 </product>
