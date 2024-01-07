@@ -4,13 +4,14 @@ Bundle-Name: Ui
 Bundle-SymbolicName: de.tbonsack.karpfediem.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.swt,
- org.eclipse.e4.ui.model.workbench,
  org.eclipse.jface,
+ org.eclipse.e4.ui.di,
  org.eclipse.e4.ui.services,
  org.eclipse.e4.ui.workbench,
+ org.eclipse.e4.ui.model.workbench,
  org.eclipse.e4.core.di,
- org.eclipse.e4.ui.di,
  org.eclipse.e4.core.contexts,
+ org.eclipse.e4.core.services;bundle-version="2.4.100",
  org.eclipse.core.runtime,
  de.tbonsack.karpfediem.translation.i18n;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-19

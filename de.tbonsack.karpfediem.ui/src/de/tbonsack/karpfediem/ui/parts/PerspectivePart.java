@@ -4,21 +4,64 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import org.eclipse.e4.core.services.nls.Translation;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.ui.advanced.MPerspective;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
+import org.eclipse.jface.layout.GridDataFactory;
+import org.eclipse.jface.layout.GridLayoutFactory;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.ColumnLabelProvider;
+import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.TableViewerColumn;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ControlAdapter;
+import org.eclipse.swt.events.ControlEvent;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Table;
+
+import de.tbonsack.karpfediem.translation.i18n.Messages;
 
 public class PerspectivePart {
+	
+	private TableViewer _tableViewer;
 
 	@PostConstruct
-	public void postConstruct(MApplication app, EPartService partService, EModelService modelService) {
+	public void postConstruct(Composite parent, MApplication app, EPartService partService, EModelService modelService, @Translation Messages messages) {
+		GridLayoutFactory.fillDefaults().numColumns(1).applyTo(parent);
 		List<MPerspective> perspectives = modelService.findElements(app, null, MPerspective.class, null);
-		System.out.println(perspectives.size());
+		createTableViewer(parent, perspectives, messages);
+	}
 
-		for (MPerspective mPerspective : perspectives) {
-			System.out.println(mPerspective.getLabel());
-		}
+	private void createTableViewer(Composite parent, List<MPerspective> perspectives, Messages messages) {
+		_tableViewer = new TableViewer(parent, SWT.None);
+		_tableViewer.setContentProvider(ArrayContentProvider.getInstance());
+		Table table = _tableViewer.getTable();
+		
+		table.setHeaderVisible(true);
+		table.setLinesVisible(true);
+		GridDataFactory.fillDefaults().grab(true, true).applyTo(table);
+		
+		
+		var column = new TableViewerColumn(_tableViewer, SWT.NONE);
+		column.getColumn().setText(messages.perspectiveColumnLabel);
+		column.setLabelProvider( new ColumnLabelProvider() {
+			@Override
+			public String getText(Object element) {
+				var perspective = (MPerspective) element;
+				return perspective.getLabel();
+			}
+		});
+		
+		
+		table.addControlListener(new ControlAdapter() {
+			@Override
+			public void controlResized(ControlEvent e) {
+				column.getColumn().setWidth(table.getClientArea().width);
+			}
+		});
+		_tableViewer.setInput(perspectives.toArray());
 	}
 
 }
