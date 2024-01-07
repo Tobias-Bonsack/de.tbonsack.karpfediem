@@ -3,7 +3,6 @@
 
 <product name="KarpfeDiem" uid="KarpfeDiem" id="de.tbonsack.karpfediem.ui.product" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="0.0.1" type="mixed" includeLaunchers="true" autoIncludeRequirements="true">
 
-
    <configIni use="default">
    </configIni>
 
@@ -16,26 +15,23 @@
 
    <windowImages/>
 
-
    <launcher>
       <win useIco="false">
          <bmp/>
       </win>
    </launcher>
 
-
    <vm>
    </vm>
 
-
    <plugins>
-      <plugin id="de.tbonsack.karpfediem.ui"/>
    </plugins>
 
    <features>
       <feature id="org.eclipse.e4.rcp" installMode="root"/>
       <feature id="org.eclipse.emf.ecore" installMode="root"/>
       <feature id="org.eclipse.emf.common" installMode="root"/>
+      <feature id="de.tbonsack.karpfediem.feature" installMode="root"/>
    </features>
 
    <configurations>

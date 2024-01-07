@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_6wlLcMgZEeSyMNYR5xypkQ" elementId="de.tbonsack.karpfediem.ui.application" bindingContexts="_6wlLecgZEeSyMNYR5xypkQ">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="de.tbonsack.karpfediem.ui.window.main" label="Eclipse RCP Application" width="500" height="400">
-    <children xsi:type="basic:PartSashContainer" xmi:id="_6wlLksgZEeSyMNYR5xypkQ" elementId="de.tbonsack.karpfediem.ui.partsashcontainer.sample">
-      <children xsi:type="basic:PartStack" xmi:id="_6wlLk8gZEeSyMNYR5xypkQ" elementId="de.tbonsack.karpfediem.ui.partstack.sample">
-        <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="de.tbonsack.karpfediem.ui.part.sample" contributionURI="bundleclass://de.tbonsack.karpfediem.ui/de.tbonsack.karpfediem.ui.parts.SamplePart" iconURI="platform:/plugin/de.tbonsack.karpfediem.ui/icons/home.png" label="Sample Part"/>
-      </children>
-    </children>
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="de.tbonsack.karpfediem.ui.window.main" label="KarpfeDiem" width="500" height="400">
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
       <children xsi:type="menu:Menu" xmi:id="_6wlLisgZEeSyMNYR5xypkQ" elementId="file" label="File">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLi8gZEeSyMNYR5xypkQ" elementId="de.tbonsack.karpfediem.ui.handleditem.file.open" label="Open" iconURI="platform:/plugin/de.tbonsack.karpfediem.ui/icons/open_in_app.png" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
@@ -16,12 +11,6 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLj8gZEeSyMNYR5xypkQ" elementId="de.tbonsack.karpfediem.ui.handleditem.about" label="About" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
       </children>
     </mainMenu>
-    <trimBars xmi:id="_6wlLlcgZEeSyMNYR5xypkQ" elementId="de.tbonsack.karpfediem.ui.trimbar.top">
-      <children xsi:type="menu:ToolBar" xmi:id="_6wlLlsgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.toolbar">
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLmMgZEeSyMNYR5xypkQ" elementId="de.tbonsack.karpfediem.ui.handleditem.trimbar.top.save" iconURI="platform:/plugin/de.tbonsack.karpfediem.ui/icons/save_edit.png" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLl8gZEeSyMNYR5xypkQ" elementId="de.tbonsack.karpfediem.ui.handleditem.trimbar.top.open" iconURI="platform:/plugin/de.tbonsack.karpfediem.ui/icons/open_in_app.png" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
-      </children>
-    </trimBars>
   </children>
   <handlers xmi:id="_6wlLfcgZEeSyMNYR5xypkQ" elementId="de.tbonsack.karpfediem.ui.handler.quitCommand" contributionURI="bundleclass://de.tbonsack.karpfediem.ui/de.tbonsack.karpfediem.ui.handlers.QuitHandler" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_6wlLgcgZEeSyMNYR5xypkQ" elementId="de.tbonsack.karpfediem.ui.handler.openCommand" contributionURI="bundleclass://de.tbonsack.karpfediem.ui/de.tbonsack.karpfediem.ui.handlers.OpenHandler" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
