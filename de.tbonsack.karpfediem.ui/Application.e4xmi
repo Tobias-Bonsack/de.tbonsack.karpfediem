@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmi:id="_6wlLcMgZEeSyMNYR5xypkQ" elementId="de.tbonsack.karpfediem.ui.application" bindingContexts="_6wlLecgZEeSyMNYR5xypkQ">
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmi:id="_6wlLcMgZEeSyMNYR5xypkQ" elementId="de.tbonsack.karpfediem.ui.application" bindingContexts="_6wlLecgZEeSyMNYR5xypkQ">
   <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="de.tbonsack.karpfediem.ui.window.main" label="KarpfeDiem" width="500" height="400">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_1Do1cK1EEe6rQJKxJP5ylA" elementId="de.tbonsack.karpfediem.ui.perspectivestack.welcome" accessibilityPhrase="welcome">
+      <children xsi:type="advanced:Perspective" xmi:id="_759NAK1EEe6rQJKxJP5ylA" elementId="de.tbonsack.karpfediem.ui.perspective.welcome" label="Welcome">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_IyeXkK1FEe6rQJKxJP5ylA" elementId="de.tbonsack.karpfediem.ui.partsashcontainer.welcome" horizontal="true">
+          <children xsi:type="basic:PartStack" xmi:id="_LutfMK1FEe6rQJKxJP5ylA" elementId="de.tbonsack.karpfediem.ui.partstack.0">
+            <children xsi:type="basic:Part" xmi:id="_Tclw4K1FEe6rQJKxJP5ylA" elementId="de.tbonsack.karpfediem.ui.part.perspektive" label="%part.perspective"/>
+          </children>
+          <children xsi:type="basic:PartStack" xmi:id="_MN9nAK1FEe6rQJKxJP5ylA" elementId="de.tbonsack.karpfediem.ui.partstack.1">
+            <children xsi:type="basic:Part" xmi:id="_uc8RcK1IEe6Uza9pA3Gh1w" elementId="de.tbonsack.karpfediem.ui.part.partparts" label="%part.parts"/>
+          </children>
+        </children>
+      </children>
+    </children>
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu"/>
   </children>
   <handlers xmi:id="_6wlLfcgZEeSyMNYR5xypkQ" elementId="de.tbonsack.karpfediem.ui.handler.quitCommand" contributionURI="bundleclass://de.tbonsack.karpfediem.ui/de.tbonsack.karpfediem.ui.handlers.QuitHandler" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
