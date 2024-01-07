@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: I18n
+Bundle-SymbolicName: de.tbonsack.karpfediem.translation.i18n
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.29.0"
+Export-Package: de.tbonsack.karpfediem.translation.i18n
+Automatic-Module-Name: de.tbonsack.karpfediem.translation.i18n
+Bundle-RequiredExecutionEnvironment: JavaSE-19
