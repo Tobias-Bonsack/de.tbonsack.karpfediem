@@ -32,6 +32,7 @@
       <feature id="org.eclipse.emf.ecore" installMode="root"/>
       <feature id="org.eclipse.emf.common" installMode="root"/>
       <feature id="de.tbonsack.karpfediem.feature" installMode="root"/>
+      <feature id="de.tbonsack.karpfediem.pokemon.cardmanager.feature" installMode="root"/>
    </features>
 
    <configurations>
