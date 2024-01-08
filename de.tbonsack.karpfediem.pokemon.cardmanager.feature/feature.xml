@@ -20,4 +20,8 @@
          id="de.tbonsack.karpfediem.pokemon.cardmanager.ui"
          version="0.0.0"/>
 
+   <plugin
+         id="de.tbonsack.karpfediem.cardmanager.translation.i18n"
+         version="0.0.0"/>
+
 </feature>
