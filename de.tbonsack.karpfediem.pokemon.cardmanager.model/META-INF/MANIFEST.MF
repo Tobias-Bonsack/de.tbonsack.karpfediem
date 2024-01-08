@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Model
+Bundle-SymbolicName: de.tbonsack.karpfediem.pokemon.cardmanager.model
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: de.tbonsack.karpfediem.pokemon.cardmanager.model
+Bundle-RequiredExecutionEnvironment: JavaSE-19
