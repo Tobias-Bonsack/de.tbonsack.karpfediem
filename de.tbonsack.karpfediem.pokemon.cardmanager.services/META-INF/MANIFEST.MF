@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Services
+Bundle-SymbolicName: de.tbonsack.karpfediem.pokemon.cardmanager.services
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: de.tbonsack.karpfediem.pokemon.cardmanager.services
+Bundle-RequiredExecutionEnvironment: JavaSE-19
