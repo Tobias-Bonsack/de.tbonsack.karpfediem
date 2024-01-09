@@ -3,6 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Model
 Bundle-SymbolicName: de.tbonsack.karpfediem.pokemon.cardmanager.model
 Bundle-Version: 1.0.0.qualifier
-Export-Package: de.tbonsack.karpfediem.pokemon.cardmanager.model.services
+Export-Package: de.tbonsack.karpfediem.pokemon.cardmanager.model.objects,
+ de.tbonsack.karpfediem.pokemon.cardmanager.model.services
 Automatic-Module-Name: de.tbonsack.karpfediem.pokemon.cardmanager.model
 Bundle-RequiredExecutionEnvironment: JavaSE-19
