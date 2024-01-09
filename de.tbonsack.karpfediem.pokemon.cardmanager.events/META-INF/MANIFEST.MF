@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Events
+Bundle-SymbolicName: de.tbonsack.karpfediem.pokemon.cardmanager.events
+Bundle-Version: 1.0.0.qualifier
+Export-Package: de.tbonsack.karpfediem.pokemon.cardmanager.events
+Automatic-Module-Name: de.tbonsack.karpfediem.pokemon.cardmanager.events
+Bundle-RequiredExecutionEnvironment: JavaSE-19
