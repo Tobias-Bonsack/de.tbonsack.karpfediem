@@ -19,9 +19,13 @@ import org.osgi.framework.FrameworkUtil;
 
 import de.tbonsack.karpfediem.pokemon.cardmanager.model.objects.Card;
 import de.tbonsack.karpfediem.pokemon.cardmanager.model.objects.CardSet;
+import de.tbonsack.karpfediem.pokemon.cardmanager.model.services.CardService;
 import de.tbonsack.karpfediem.pokemon.cardmanager.model.services.CardSetService;
 
 public class testcardpart {
+
+	@Inject
+	CardService _cardService;
 
 	@Inject
 	CardSetService _setService;
@@ -29,7 +33,8 @@ public class testcardpart {
 	@PostConstruct
 	public void postConstruct(Composite parent) {
 		CardSet set = _setService.getAllSets().iterator().next();
-		Card next = set.getCards().iterator().next();
+		int idFromCard = set.getCards().iterator().next();
+		Card next = _cardService.getCard(idFromCard);
 
 		GridLayoutFactory.fillDefaults().numColumns(1).applyTo(parent);
 

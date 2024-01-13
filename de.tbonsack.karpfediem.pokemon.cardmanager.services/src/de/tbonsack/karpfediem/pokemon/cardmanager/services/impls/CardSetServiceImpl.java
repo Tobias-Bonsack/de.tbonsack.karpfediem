@@ -7,7 +7,6 @@ import javax.inject.Inject;
 
 import org.eclipse.e4.core.services.events.IEventBroker;
 
-import de.tbonsack.karpfediem.pokemon.cardmanager.model.objects.Card;
 import de.tbonsack.karpfediem.pokemon.cardmanager.model.objects.CardSet;
 import de.tbonsack.karpfediem.pokemon.cardmanager.model.services.CardSetService;
 
@@ -22,7 +21,7 @@ public class CardSetServiceImpl implements CardSetService {
 		CardSet cardSet = new CardSet(1, "base", null);
 		_sets.add(cardSet);
 
-		cardSet.addCard(new Card(1, "glumanda", 1).getId());
+		cardSet.addCard(1);
 	}
 
 	@Override

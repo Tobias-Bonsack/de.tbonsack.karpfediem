@@ -5,5 +5,7 @@ import de.tbonsack.karpfediem.pokemon.cardmanager.model.objects.CardSet;
 
 public interface CardService {
 
-	public Card getCard(int number, CardSet set);
+	Card getCard(int globalID);
+
+	Card getCard(int number, CardSet set);
 }
