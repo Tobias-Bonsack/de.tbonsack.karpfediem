@@ -36,4 +36,8 @@
          id="de.tbonsack.karpfediem.pokemon.cardmanager.services"
          version="0.0.0"/>
 
+   <plugin
+         id="de.tbonsack.karpfediem.pokemon.cardmanager.resources"
+         version="0.0.0"/>
+
 </feature>
