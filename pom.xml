@@ -53,21 +53,21 @@
       <file>../target-platform/target-platform.target</file>
     </target>
      <environments>
-      <environment>
-       <os>linux</os>
-       <ws>gtk</ws>
-       <arch>x86_64</arch>
-      </environment>
-      <environment>
+	  <environment>
        <os>win32</os>
        <ws>win32</ws>
+       <arch>x86_64</arch>
+      </environment>
+      <!--<environment>
+       <os>linux</os>
+       <ws>gtk</ws>
        <arch>x86_64</arch>
       </environment>
       <environment>
        <os>macosx</os>
        <ws>cocoa</ws>
        <arch>x86_64</arch>
-      </environment>
+      </environment>-->
      </environments>
     </configuration>
    </plugin>
@@ -77,5 +77,15 @@
  <modules>
   <module>de.tbonsack.karpfediem.product</module>
   <module>de.tbonsack.karpfediem.ui</module>
+  <module>de.tbonsack.karpfediem.feature</module>
+  <module>de.tbonsack.karpfediem.translation.i18n</module>
+  
+  <module>de.tbonsack.karpfediem.pokemon.cardmanager.events</module>
+  <module>de.tbonsack.karpfediem.pokemon.cardmanager.feature</module>
+  <module>de.tbonsack.karpfediem.pokemon.cardmanager.model</module>
+  <module>de.tbonsack.karpfediem.pokemon.cardmanager.resources</module>
+  <module>de.tbonsack.karpfediem.pokemon.cardmanager.services</module>
+  <module>de.tbonsack.karpfediem.pokemon.cardmanager.translation.i18n</module>
+  <module>de.tbonsack.karpfediem.pokemon.cardmanager.ui</module>
  </modules>
 </project>
