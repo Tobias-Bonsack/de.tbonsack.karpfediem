@@ -2,30 +2,50 @@ package de.tbonsack.karpfediem.pokemon.cardmanager.model.objects;
 
 public abstract class ABasicCardObject {
 
-	private String _name;
-	
+	private int _id;
+
 	private String _imgPath;
-	
-	protected ABasicCardObject(String name) {
+
+	private String _name;
+
+	protected ABasicCardObject(int id, String name) {
 		super();
 		_name = name;
+		_id = id;
 	}
 
-	protected ABasicCardObject(String name, String imgPath) {
+	protected ABasicCardObject(int id, String name, String imgPath) {
 		super();
 		_name = name;
 		_imgPath = imgPath;
+		_id = id;
+	}
+
+	public int getId() {
+		return _id;
+	}
+
+	public String getImgPath() {
+		return _imgPath;
+	}
+
+	public String getName() {
+		return _name;
+	}
+
+	/**
+	 * Only for gson read! Do not use!
+	 */
+	@Deprecated
+	public void setId(int id) {
+		_id = id;
 	}
 
 	public void setImgPath(String imgPath) {
 		_imgPath = imgPath;
 	}
-	
-	public String getName() {
-		return _name;
-	}
-	
-	public String getImgPath() {
-		return _imgPath;
+
+	public void setName(String name) {
+		_name = name;
 	}
 }

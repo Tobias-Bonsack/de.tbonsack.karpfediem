@@ -1,33 +1,62 @@
 package de.tbonsack.karpfediem.pokemon.cardmanager.model.objects;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Card extends ABasicCardObject {
+public class Card extends ABasicCardObject implements Serializable {
 
-	private int _number = -1;
+	private List<Integer> _containedInCardSet = new ArrayList<>();
 
 	private boolean _isOwned = false;
 
-	private Date _ownedSince;
-	
-	private List<CardSet> _containedIn = new ArrayList<CardSet>();
+	private int _number = -1;
 
-	public Card(String name, int number, String imgPath, boolean isOwned, Date ownedSince) {
-		super(name, imgPath);
+	private Date _ownedSince;
+
+	public Card(int id, String name, int number) {
+		super(id, name);
+		_number = number;
+	}
+
+	public Card(int id, String name, int number, String imgPath, boolean isOwned, Date ownedSince) {
+		super(id, name, imgPath);
 		_number = number;
 		_isOwned = isOwned;
 		_ownedSince = ownedSince;
 	}
 
-	public Card(String name, int number) {
-		super(name);
-		_number = number;
+	public boolean addToSet(int idFromSet) {
+		return _containedInCardSet.add(idFromSet);
 	}
 
-	public void setContainedIn(List<CardSet> containedIn) {
-		_containedIn = containedIn;
+	public List<Integer> getContainedInCardSet() {
+		return _containedInCardSet;
+	}
+
+	public int getNumber() {
+		return _number;
+	}
+
+	public Date getOwnedSince() {
+		return _ownedSince;
+	}
+
+	public boolean isOwned() {
+		return _isOwned;
+	}
+
+	public void setContainedIn(List<Integer> containedIn) {
+		_containedInCardSet = containedIn;
+	}
+
+	public void setContainedInCardSet(List<Integer> containedInCardSet) {
+		_containedInCardSet = containedInCardSet;
+	}
+
+	public void setNumber(int number) {
+		_number = number;
 	}
 
 	public void setOwned(boolean isOwned) {
@@ -36,21 +65,5 @@ public class Card extends ABasicCardObject {
 
 	public void setOwnedSince(Date ownedSince) {
 		_ownedSince = ownedSince;
-	}
-
-	public boolean isOwned() {
-		return _isOwned;
-	}
-
-	public Date getOwnedSince() {
-		return _ownedSince;
-	}
-
-	public int getNumber() {
-		return _number;
-	}
-
-	public List<CardSet> getContainedIn() {
-		return _containedIn;
 	}
 }

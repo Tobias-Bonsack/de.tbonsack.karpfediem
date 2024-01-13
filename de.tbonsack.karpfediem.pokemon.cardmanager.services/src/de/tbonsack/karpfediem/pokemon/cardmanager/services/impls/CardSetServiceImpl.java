@@ -19,10 +19,10 @@ public class CardSetServiceImpl implements CardSetService {
 	private List<CardSet> _sets = new ArrayList<>();
 
 	public CardSetServiceImpl() {
-		CardSet cardSet = new CardSet("base", null);
+		CardSet cardSet = new CardSet(1, "base", null);
 		_sets.add(cardSet);
 
-		cardSet.addCard(new Card("glumanda", 1));
+		cardSet.addCard(new Card(1, "glumanda", 1).getId());
 	}
 
 	@Override
