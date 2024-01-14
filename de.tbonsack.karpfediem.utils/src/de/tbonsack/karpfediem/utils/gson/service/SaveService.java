@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface SaveService<T extends ASerializable> {
 
-	void safeAsGson(List<T> list);
+	<E> void safeAsGson(List<T> list, Class<E> objectType);
 
-	void safeAsGson(T object);
+	<E> void safeAsGson(T object, Class<E> objectType);
 
 }

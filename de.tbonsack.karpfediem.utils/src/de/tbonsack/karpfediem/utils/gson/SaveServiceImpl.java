@@ -19,16 +19,17 @@ import de.tbonsack.karpfediem.utils.gson.service.SaveService;
 public class SaveServiceImpl implements SaveService<ASerializable> {
 
 	@Override
-	public void safeAsGson(ASerializable object) {
-		String dir = System.getProperty("user.dir");
+	public <E> void safeAsGson(ASerializable object, Class<E> objectType) {
+//		String dir = System.getProperty("user.dir");
+		String dir = "C:\\others";
 		Gson gson = new Gson();
 
-		var type = new TypeToken<List<ASerializable>>() {
-		}.getType();
+		var type = TypeToken.getParameterized(objectType).getType();
 		String json = gson.toJson(object, type);
 
 		try {
-			Files.write(Paths.get(dir + File.separator + object.getPathName()), json.getBytes(),
+			String pathName = object.getPathName();
+			Files.write(Paths.get(dir + File.separator + pathName + ".json"), json.getBytes(),
 					StandardOpenOption.CREATE);
 		} catch (IOException e) {
 			// TODO: handle exception
@@ -36,7 +37,7 @@ public class SaveServiceImpl implements SaveService<ASerializable> {
 	}
 
 	@Override
-	public void safeAsGson(List<ASerializable> list) {
-		list.stream().forEach(this::safeAsGson);
+	public <E> void safeAsGson(List<ASerializable> list, Class<E> objectType) {
+		list.stream().forEach(i -> safeAsGson(i, objectType));
 	}
 }
