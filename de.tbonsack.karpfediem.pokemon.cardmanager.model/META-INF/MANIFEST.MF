@@ -7,3 +7,4 @@ Export-Package: de.tbonsack.karpfediem.pokemon.cardmanager.model.objects,
  de.tbonsack.karpfediem.pokemon.cardmanager.model.services
 Automatic-Module-Name: de.tbonsack.karpfediem.pokemon.cardmanager.model
 Bundle-RequiredExecutionEnvironment: JavaSE-19
+Import-Package: de.tbonsack.karpfediem.utils.gson.service

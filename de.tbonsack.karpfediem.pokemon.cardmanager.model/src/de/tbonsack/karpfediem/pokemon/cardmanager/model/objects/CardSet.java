@@ -20,6 +20,11 @@ public class CardSet extends ABasicCardObject implements Serializable {
 		return _cards;
 	}
 
+	@Override
+	public String getPathName() {
+		return getFileName();
+	}
+
 	public void setCards(Set<Integer> cards) {
 		_cards = cards;
 	}

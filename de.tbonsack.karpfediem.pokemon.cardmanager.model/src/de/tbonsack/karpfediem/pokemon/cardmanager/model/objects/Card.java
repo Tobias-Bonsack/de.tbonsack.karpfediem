@@ -43,6 +43,11 @@ public class Card extends ABasicCardObject implements Serializable {
 		return _ownedSince;
 	}
 
+	@Override
+	public String getPathName() {
+		return this.getFileName();
+	}
+
 	public boolean isOwned() {
 		return _isOwned;
 	}

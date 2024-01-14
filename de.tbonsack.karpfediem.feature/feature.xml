@@ -28,4 +28,8 @@
          id="de.tbonsack.karpfediem.translation.i18n"
          version="0.0.0"/>
 
+   <plugin
+         id="de.tbonsack.karpfediem.utils"
+         version="0.0.0"/>
+
 </feature>

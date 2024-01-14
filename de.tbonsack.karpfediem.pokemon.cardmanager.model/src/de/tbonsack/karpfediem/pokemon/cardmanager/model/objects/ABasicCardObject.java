@@ -1,6 +1,8 @@
 package de.tbonsack.karpfediem.pokemon.cardmanager.model.objects;
 
-public abstract class ABasicCardObject {
+import de.tbonsack.karpfediem.utils.gson.service.ASerializable;
+
+public abstract class ABasicCardObject extends ASerializable {
 
 	private int _id;
 
@@ -19,6 +21,11 @@ public abstract class ABasicCardObject {
 		_name = name;
 		_imgPath = imgPath;
 		_id = id;
+	}
+
+	@Override
+	protected String getFileName() {
+		return getName();
 	}
 
 	public int getId() {
@@ -48,4 +55,5 @@ public abstract class ABasicCardObject {
 	public void setName(String name) {
 		_name = name;
 	}
+
 }
