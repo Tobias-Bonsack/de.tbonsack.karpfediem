@@ -33,6 +33,8 @@
       <feature id="org.eclipse.emf.common" installMode="root"/>
       <feature id="de.tbonsack.karpfediem.feature" installMode="root"/>
       <feature id="de.tbonsack.karpfediem.pokemon.cardmanager.feature" installMode="root"/>
+      <feature id="maven.libs" installMode="root"/>
+      <feature id="maven.libs.source" installMode="root"/>
    </features>
 
    <configurations>
