@@ -1,5 +1,6 @@
 package de.tbonsack.karpfediem.pokemon.cardmanager.services.impls;
 
+import org.eclipse.core.runtime.ILog;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.core.runtime.preferences.InstanceScope;
@@ -10,29 +11,36 @@ import de.tbonsack.karpfediem.pokemon.cardmanager.model.services.PreferenceServi
 public class PreferenceServiceImpl implements PreferenceService {
 
 	private static final String ID_COUNT = "id-count";
+
 	private static final String NODEPATH = "de.tbonsack.karpfediem.pokemon.cardmanager";
 
 	private Long _idCount;
 
+	private ILog _log;
+
+	private final IEclipsePreferences _node;
+
 	public PreferenceServiceImpl() {
-		System.out.println(Platform.getInstanceLocation().getURL().getPath());
-		IEclipsePreferences node = InstanceScope.INSTANCE.getNode(NODEPATH);
-		_idCount = node.getLong(ID_COUNT, Long.MIN_VALUE);
+		_log = Platform.getLog(getClass());
+		_node = InstanceScope.INSTANCE.getNode(NODEPATH);
+		_idCount = _node.getLong(ID_COUNT, Long.MIN_VALUE);
 		if (_idCount == Long.MIN_VALUE) {
 			_idCount++;
-			node.putLong(ID_COUNT, _idCount);
+			_node.putLong(ID_COUNT, _idCount);
 			try {
-				node.flush();
+				_node.flush();
+				_log.info("Flush prefs complete");
 			} catch (BackingStoreException e) {
-				// Ignore
+				_log.error("Can't flush prefs", e);
 			}
 		}
+		_log.info("Init prefs done");
 	}
 
 	@Override
 	public long getNextID() {
-		// TODO Auto-generated method stub
-		return 0;
+		_node.putLong(ID_COUNT, ++_idCount);
+		return _idCount;
 	}
 
 }
