@@ -25,7 +25,7 @@ public class TestPart {
 	public void test(Composite parent) {
 		GridLayoutFactory.fillDefaults().applyTo(parent);
 
-		WidgetFactory.button(SWT.None).text("Save Set")//
+		WidgetFactory.button(SWT.None).text("Save Sets")//
 				.data(GridDataFactory.fillDefaults().create())//
 				.onSelect((event) -> {
 					_saveService.safeAsGson(_setService.getAllSets(), CardSet.class);

@@ -6,9 +6,11 @@ import java.util.Set;
 
 public class CardSet extends ABasicCardObject implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
 	private Set<Integer> _cards = new HashSet<>();
 
-	public CardSet(int id, String name, String imgPath) {
+	public CardSet(long id, String name, String imgPath) {
 		super(id, name, imgPath);
 	}
 
@@ -22,7 +24,7 @@ public class CardSet extends ABasicCardObject implements Serializable {
 
 	@Override
 	public String getPathName() {
-		return getFileName();
+		return "pokemon/cardsets";
 	}
 
 	public void setCards(Set<Integer> cards) {

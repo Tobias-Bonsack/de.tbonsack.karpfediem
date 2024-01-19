@@ -4,19 +4,19 @@ import de.tbonsack.karpfediem.utils.gson.service.ASerializable;
 
 public abstract class ABasicCardObject extends ASerializable {
 
-	private int _id;
+	private long _id;
 
 	private String _imgPath;
 
 	private String _name;
 
-	protected ABasicCardObject(int id, String name) {
+	protected ABasicCardObject(long id, String name) {
 		super();
 		_name = name;
 		_id = id;
 	}
 
-	protected ABasicCardObject(int id, String name, String imgPath) {
+	protected ABasicCardObject(long id, String name, String imgPath) {
 		super();
 		_name = name;
 		_imgPath = imgPath;
@@ -28,7 +28,7 @@ public abstract class ABasicCardObject extends ASerializable {
 		return getName();
 	}
 
-	public int getId() {
+	public long getId() {
 		return _id;
 	}
 

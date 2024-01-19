@@ -15,12 +15,12 @@ public class Card extends ABasicCardObject implements Serializable {
 
 	private Date _ownedSince;
 
-	public Card(int id, String name, int number) {
+	public Card(long id, String name, int number) {
 		super(id, name);
 		_number = number;
 	}
 
-	public Card(int id, String name, int number, String imgPath, boolean isOwned, Date ownedSince) {
+	public Card(long id, String name, int number, String imgPath, boolean isOwned, Date ownedSince) {
 		super(id, name, imgPath);
 		_number = number;
 		_isOwned = isOwned;
