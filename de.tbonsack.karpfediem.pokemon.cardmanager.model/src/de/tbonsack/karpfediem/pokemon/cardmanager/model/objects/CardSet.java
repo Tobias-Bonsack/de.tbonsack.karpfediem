@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-public class CardSet extends ABasicCardObject implements Serializable, Cloneable {
+public class CardSet extends ABasicCardObject implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 

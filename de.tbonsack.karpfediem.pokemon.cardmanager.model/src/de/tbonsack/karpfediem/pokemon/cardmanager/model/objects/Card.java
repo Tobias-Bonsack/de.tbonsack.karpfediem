@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Card extends ABasicCardObject implements Serializable, Cloneable {
+public class Card extends ABasicCardObject implements Serializable {
 
 	/**
 	 *

@@ -19,7 +19,7 @@ import de.tbonsack.karpfediem.utils.gson.service.ASerializable;
 import de.tbonsack.karpfediem.utils.gson.service.SaveService;
 
 @Component
-public class SaveServiceImpl implements SaveService<ASerializable> {
+public class SaveServiceImpl implements SaveService {
 
 	@Override
 	public <E> void safeAsGson(ASerializable object, Class<E> objectType) {

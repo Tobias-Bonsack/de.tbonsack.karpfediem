@@ -2,7 +2,7 @@ package de.tbonsack.karpfediem.pokemon.cardmanager.model.objects;
 
 import de.tbonsack.karpfediem.utils.gson.service.ASerializable;
 
-public abstract class ABasicCardObject extends ASerializable {
+public abstract class ABasicCardObject extends ASerializable implements Cloneable {
 
 	private int _id;
 
