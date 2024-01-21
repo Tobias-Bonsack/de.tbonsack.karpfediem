@@ -8,29 +8,33 @@ import javax.inject.Inject;
 import org.eclipse.e4.core.services.events.IEventBroker;
 
 import de.tbonsack.karpfediem.pokemon.cardmanager.model.objects.Card;
-import de.tbonsack.karpfediem.pokemon.cardmanager.model.objects.CardSet;
 import de.tbonsack.karpfediem.pokemon.cardmanager.model.services.CardService;
+import de.tbonsack.karpfediem.pokemon.cardmanager.model.services.PreferenceService;
 
 public class CardServiceImpl implements CardService {
 
-	private Map<Integer, Card> _allCards = new HashMap<>();
+	@Inject
+	private static IEventBroker BROKER;
 
 	@Inject
-	private IEventBroker _broker;
+	private static PreferenceService PERF_SERVICE;
 
-	public CardServiceImpl() {
-		_allCards.put(1, new Card(1, "glumanda", 1));
+	private Map<Integer, Card> _allCards = new HashMap<>();
+
+	@Override
+	public Card createCard() {
+		return new Card(PERF_SERVICE.getNextID(), "", -1);
 	}
 
 	@Override
 	public Card getCard(int globalID) {
-		return _allCards.get(globalID);
+		return (Card) _allCards.get(globalID).clone();
 	}
 
 	@Override
-	public Card getCard(int number, CardSet set) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean saveCard(Card card) {
+		_allCards.put(card.getId(), card);
+		return true;
 	}
 
 }

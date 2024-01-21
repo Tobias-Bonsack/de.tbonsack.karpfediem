@@ -1,10 +1,11 @@
 package de.tbonsack.karpfediem.pokemon.cardmanager.model.objects;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-public class CardSet extends ABasicCardObject implements Serializable {
+public class CardSet extends ABasicCardObject implements Serializable, Cloneable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -16,6 +17,17 @@ public class CardSet extends ABasicCardObject implements Serializable {
 
 	public boolean addCard(int card) {
 		return _cards.add(card);
+	}
+
+	public void addCards(Collection<Integer> cards) {
+		cards.stream().forEach(this::addCard);
+	}
+
+	@Override
+	public Object clone() {
+		CardSet cardSet = new CardSet(getId(), getName(), getImgPath());
+		cardSet.addCards(this.getCards());
+		return cardSet;
 	}
 
 	public Set<Integer> getCards() {

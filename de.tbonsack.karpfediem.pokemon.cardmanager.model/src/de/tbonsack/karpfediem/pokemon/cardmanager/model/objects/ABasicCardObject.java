@@ -35,7 +35,7 @@ public abstract class ABasicCardObject extends ASerializable {
 		return getName();
 	}
 
-	public long getId() {
+	public int getId() {
 		return _id;
 	}
 

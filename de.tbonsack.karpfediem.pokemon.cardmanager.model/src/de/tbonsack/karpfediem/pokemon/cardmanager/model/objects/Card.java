@@ -5,7 +5,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Card extends ABasicCardObject implements Serializable {
+public class Card extends ABasicCardObject implements Serializable, Cloneable {
+
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private List<Integer> _containedInCardSet = new ArrayList<>();
 
@@ -32,9 +37,8 @@ public class Card extends ABasicCardObject implements Serializable {
 	}
 
 	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		// TODO Auto-generated method stub
-		return super.clone();
+	public Object clone() {
+		return new Card(this.getId(), this.getName(), _number, this.getImgPath(), _isOwned, _ownedSince);
 	}
 
 	public List<Integer> getContainedInCardSet() {
@@ -51,7 +55,7 @@ public class Card extends ABasicCardObject implements Serializable {
 
 	@Override
 	public String getPathName() {
-		return this.getFileName();
+		return getFileName();
 	}
 
 	public boolean isOwned() {
