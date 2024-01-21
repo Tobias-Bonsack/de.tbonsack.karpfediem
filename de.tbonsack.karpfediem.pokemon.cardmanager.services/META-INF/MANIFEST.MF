@@ -22,3 +22,4 @@ Service-Component: OSGI-INF/de.tbonsack.karpfediem.pokemon.cardmanager.services.
 Automatic-Module-Name: de.tbonsack.karpfediem.pokemon.cardmanager.services
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-19
+Import-Package: de.tbonsack.karpfediem.utils.gson.service

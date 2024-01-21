@@ -1,8 +1,8 @@
 package de.tbonsack.karpfediem.pokemon.cardmanager.model.objects;
 
-import de.tbonsack.karpfediem.utils.gson.service.ASerializable;
+import de.tbonsack.karpfediem.utils.gson.service.ISerializable;
 
-public abstract class ABasicCardObject extends ASerializable implements Cloneable {
+public abstract class ABasicCardObject implements ISerializable, Cloneable {
 
 	private int _id;
 
@@ -28,11 +28,6 @@ public abstract class ABasicCardObject extends ASerializable implements Cloneabl
 		if (obj == null || !getClass().isInstance(obj))
 			return false;
 		return _id == ((ABasicCardObject) obj).getId();
-	}
-
-	@Override
-	protected String getFileName() {
-		return getName();
 	}
 
 	public int getId() {

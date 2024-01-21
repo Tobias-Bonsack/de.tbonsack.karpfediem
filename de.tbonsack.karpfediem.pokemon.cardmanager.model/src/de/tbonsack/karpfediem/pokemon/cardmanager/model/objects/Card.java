@@ -45,6 +45,11 @@ public class Card extends ABasicCardObject implements Serializable {
 		return _containedInCardSet;
 	}
 
+	@Override
+	public String getFileName() {
+		return "cards";
+	}
+
 	public int getNumber() {
 		return _number;
 	}
@@ -55,7 +60,7 @@ public class Card extends ABasicCardObject implements Serializable {
 
 	@Override
 	public String getPathName() {
-		return getFileName();
+		return "pokemon/cardmanager/";
 	}
 
 	public boolean isOwned() {

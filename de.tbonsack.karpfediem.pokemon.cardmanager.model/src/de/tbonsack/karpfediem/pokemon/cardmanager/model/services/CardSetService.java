@@ -4,10 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import de.tbonsack.karpfediem.pokemon.cardmanager.model.objects.CardSet;
+import de.tbonsack.karpfediem.utils.gson.service.ISerializable;
 
 public interface CardSetService {
 
 	CardSet createCardSet();
+
+	List<ISerializable> getAllSaveableSets();
 
 	List<CardSet> getAllSets();
 

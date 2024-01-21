@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Resources
-Bundle-SymbolicName: de.tbonsack.karpfediem.pokemon.cardmanager.resources
-Bundle-Version: 1.0.0.qualifier
-Automatic-Module-Name: de.tbonsack.karpfediem.pokemon.cardmanager.resources
-Bundle-RequiredExecutionEnvironment: JavaSE-19

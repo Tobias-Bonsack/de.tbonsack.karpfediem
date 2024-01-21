@@ -35,8 +35,13 @@ public class CardSet extends ABasicCardObject implements Serializable {
 	}
 
 	@Override
+	public String getFileName() {
+		return "cardsets";
+	}
+
+	@Override
 	public String getPathName() {
-		return "pokemon/cardsets";
+		return "pokemon/cardmanager/";
 	}
 
 	public void setCards(Set<Integer> cards) {

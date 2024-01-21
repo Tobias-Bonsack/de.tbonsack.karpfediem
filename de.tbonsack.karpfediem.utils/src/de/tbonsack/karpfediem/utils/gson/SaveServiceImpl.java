@@ -15,14 +15,14 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import de.tbonsack.karpfediem.utils.gson.service.ASerializable;
+import de.tbonsack.karpfediem.utils.gson.service.ISerializable;
 import de.tbonsack.karpfediem.utils.gson.service.SaveService;
 
 @Component
 public class SaveServiceImpl implements SaveService {
 
 	@Override
-	public <E> void safeAsGson(ASerializable object, Class<E> objectType) {
+	public <E> void safeAsGson(ISerializable object, Class<E> objectType) {
 //		String dir = System.getProperty("user.dir");
 		String dir = "C:\\others";
 		Gson gson = new Gson();
@@ -32,7 +32,8 @@ public class SaveServiceImpl implements SaveService {
 
 		try {
 			String pathName = object.getPathName();
-			Path path = Paths.get(dir + File.separator + pathName + ".json");
+			String fileName = object.getFileName();
+			Path path = Paths.get(dir + File.separator + pathName + fileName + ".json");
 			Files.write(path, json.getBytes(), StandardOpenOption.CREATE);
 		} catch (IOException e) {
 			// TODO: handle exception
@@ -40,7 +41,7 @@ public class SaveServiceImpl implements SaveService {
 	}
 
 	@Override
-	public <E> void safeAsGson(List<ASerializable> list, Class<E> objectType) {
+	public <E> void safeAsGson(List<ISerializable> list, Class<E> objectType) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
 		var type = new TypeToken<List<E>>() {
@@ -50,7 +51,8 @@ public class SaveServiceImpl implements SaveService {
 		try {
 			String dir = Platform.getInstanceLocation().getURL().getPath();
 			String pathName = list.iterator().next().getPathName();
-			Path path = Paths.get(dir + File.separator + pathName + ".json");
+			String fileName = list.iterator().next().getFileName();
+			Path path = Paths.get(dir + File.separator + pathName + fileName + ".json");
 			Files.write(path, json.getBytes(), StandardOpenOption.CREATE);
 		} catch (IOException e) {
 			// TODO: handle exception

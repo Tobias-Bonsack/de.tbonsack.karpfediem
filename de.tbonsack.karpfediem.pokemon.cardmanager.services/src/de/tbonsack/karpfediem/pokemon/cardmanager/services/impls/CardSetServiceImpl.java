@@ -13,6 +13,7 @@ import org.eclipse.e4.core.services.events.IEventBroker;
 import de.tbonsack.karpfediem.pokemon.cardmanager.model.objects.CardSet;
 import de.tbonsack.karpfediem.pokemon.cardmanager.model.services.CardSetService;
 import de.tbonsack.karpfediem.pokemon.cardmanager.model.services.PreferenceService;
+import de.tbonsack.karpfediem.utils.gson.service.ISerializable;
 
 public class CardSetServiceImpl implements CardSetService {
 
@@ -27,6 +28,11 @@ public class CardSetServiceImpl implements CardSetService {
 	@Override
 	public CardSet createCardSet() {
 		return new CardSet(PERF_SERVICE.getNextID(), "", "");
+	}
+
+	@Override
+	public List<ISerializable> getAllSaveableSets() {
+		return _sets.values().stream().map(i -> (ISerializable) i).collect(Collectors.toList());
 	}
 
 	@Override

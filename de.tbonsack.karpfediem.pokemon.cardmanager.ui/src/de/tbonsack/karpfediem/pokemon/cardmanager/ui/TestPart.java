@@ -16,7 +16,7 @@ import de.tbonsack.karpfediem.utils.gson.service.SaveService;
 public class TestPart {
 
 	@Inject
-	SaveService<CardSet> _saveService;
+	SaveService _saveService;
 
 	@Inject
 	CardSetService _setService;
@@ -28,7 +28,7 @@ public class TestPart {
 		WidgetFactory.button(SWT.None).text("Save Sets")//
 				.data(GridDataFactory.fillDefaults().create())//
 				.onSelect((event) -> {
-					_saveService.safeAsGson(_setService.getAllSets(), CardSet.class);
+					_saveService.safeAsGson(_setService.getAllSaveableSets(), CardSet.class);
 				})//
 				.create(parent);
 	}
