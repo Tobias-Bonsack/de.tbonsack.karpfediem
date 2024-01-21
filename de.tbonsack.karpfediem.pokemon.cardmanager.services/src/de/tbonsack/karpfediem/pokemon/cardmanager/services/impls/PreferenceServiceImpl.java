@@ -14,7 +14,7 @@ public class PreferenceServiceImpl implements PreferenceService {
 
 	private static final String NODEPATH = "de.tbonsack.karpfediem.pokemon.cardmanager";
 
-	private Long _idCount;
+	private Integer _idCount;
 
 	private ILog _log;
 
@@ -23,7 +23,7 @@ public class PreferenceServiceImpl implements PreferenceService {
 	public PreferenceServiceImpl() {
 		_log = Platform.getLog(getClass());
 		_node = InstanceScope.INSTANCE.getNode(NODEPATH);
-		_idCount = _node.getLong(ID_COUNT, Long.MIN_VALUE);
+		_idCount = _node.getInt(ID_COUNT, Integer.MIN_VALUE);
 		if (_idCount == Long.MIN_VALUE) {
 			_idCount++;
 			_node.putLong(ID_COUNT, _idCount);
@@ -38,7 +38,7 @@ public class PreferenceServiceImpl implements PreferenceService {
 	}
 
 	@Override
-	public long getNextID() {
+	public int getNextID() {
 		_node.putLong(ID_COUNT, ++_idCount);
 		return _idCount;
 	}

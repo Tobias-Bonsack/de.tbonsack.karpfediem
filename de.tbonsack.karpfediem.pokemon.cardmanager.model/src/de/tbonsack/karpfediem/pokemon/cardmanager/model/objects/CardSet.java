@@ -10,7 +10,7 @@ public class CardSet extends ABasicCardObject implements Serializable {
 
 	private Set<Integer> _cards = new HashSet<>();
 
-	public CardSet(long id, String name, String imgPath) {
+	public CardSet(int id, String name, String imgPath) {
 		super(id, name, imgPath);
 	}
 
