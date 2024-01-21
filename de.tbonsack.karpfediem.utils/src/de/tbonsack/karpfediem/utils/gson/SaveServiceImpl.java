@@ -23,20 +23,19 @@ public class SaveServiceImpl implements SaveService {
 
 	@Override
 	public <E> void safeAsGson(ISerializable object, Class<E> objectType) {
-//		String dir = System.getProperty("user.dir");
-		String dir = "C:\\others";
 		Gson gson = new Gson();
 
 		var type = TypeToken.getParameterized(objectType).getType();
 		String json = gson.toJson(object, type);
 
+		String dir = Platform.getInstanceLocation().getURL().getPath();
+		String pathName = object.getPathName();
+		String fileName = object.getFileName();
+		Path path = Paths.get(dir + File.separator + pathName + fileName + ".json");
 		try {
-			String pathName = object.getPathName();
-			String fileName = object.getFileName();
-			Path path = Paths.get(dir + File.separator + pathName + fileName + ".json");
 			Files.write(path, json.getBytes(), StandardOpenOption.CREATE);
 		} catch (IOException e) {
-			// TODO: handle exception
+			Platform.getLog(getClass()).error("Unable to Safe");
 		}
 	}
 
@@ -48,14 +47,14 @@ public class SaveServiceImpl implements SaveService {
 		}.getType();
 		String json = gson.toJson(list, type);
 
+		String dir = Platform.getInstanceLocation().getURL().getPath();
+		String pathName = list.iterator().next().getPathName();
+		String fileName = list.iterator().next().getFileName();
+		Path path = Paths.get(dir + File.separator + pathName + fileName + ".json");
 		try {
-			String dir = Platform.getInstanceLocation().getURL().getPath();
-			String pathName = list.iterator().next().getPathName();
-			String fileName = list.iterator().next().getFileName();
-			Path path = Paths.get(dir + File.separator + pathName + fileName + ".json");
 			Files.write(path, json.getBytes(), StandardOpenOption.CREATE);
 		} catch (IOException e) {
-			// TODO: handle exception
+			Platform.getLog(getClass()).error("Unable to Safe");
 		}
 	}
 }
