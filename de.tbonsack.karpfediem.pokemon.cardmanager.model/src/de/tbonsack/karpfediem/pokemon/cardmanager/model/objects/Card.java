@@ -66,10 +66,6 @@ public class Card extends ABasicCardObject {
 		return _isOwned;
 	}
 
-	public void setContainedIn(List<Integer> containedIn) {
-		_containedInCardSet = containedIn;
-	}
-
 	public void setContainedInCardSet(List<Integer> containedInCardSet) {
 		_containedInCardSet = containedInCardSet;
 	}
