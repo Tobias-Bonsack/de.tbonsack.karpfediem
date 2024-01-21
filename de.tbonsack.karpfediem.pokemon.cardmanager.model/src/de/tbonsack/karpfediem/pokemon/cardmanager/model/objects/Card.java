@@ -1,11 +1,10 @@
 package de.tbonsack.karpfediem.pokemon.cardmanager.model.objects;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Card extends ABasicCardObject implements Serializable {
+public class Card extends ABasicCardObject {
 
 	/**
 	 *
