@@ -8,12 +8,14 @@ import java.nio.file.Paths;
 import java.util.Collection;
 
 import org.eclipse.core.runtime.Platform;
+import org.osgi.service.component.annotations.Component;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import de.tbonsack.karpfediem.utils.gson.service.LoadService;
 
+@Component
 public class LoadServiceImpl implements LoadService {
 
 	private String getJson(String path) {

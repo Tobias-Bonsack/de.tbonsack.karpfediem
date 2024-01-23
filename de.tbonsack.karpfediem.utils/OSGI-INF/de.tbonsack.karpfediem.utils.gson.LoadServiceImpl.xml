@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="de.tbonsack.karpfediem.utils.gson.LoadServiceImpl">
+   <service>
+      <provide interface="de.tbonsack.karpfediem.utils.gson.service.LoadService"/>
+   </service>
+   <implementation class="de.tbonsack.karpfediem.utils.gson.LoadServiceImpl"/>
+</scr:component>
