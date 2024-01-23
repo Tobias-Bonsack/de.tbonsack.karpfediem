@@ -2,12 +2,13 @@ package de.tbonsack.karpfediem.utils.gson;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.Collection;
-import java.util.List;
 
 import org.eclipse.core.runtime.Platform;
 import org.osgi.service.component.annotations.Component;
@@ -25,10 +26,23 @@ public class SaveServiceImpl implements SaveService {
 	@Override
 	public <E> void safeAsGson(Collection<ISerializable> list, Class<E> objectType) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		Type typeToken = new ParameterizedType() {
+			@Override
+			public Type[] getActualTypeArguments() {
+				return new Type[] { objectType };
+			}
 
-		var type = new TypeToken<List<E>>() {
-		}.getType();
-		String json = gson.toJson(list, type);
+			@Override
+			public Type getOwnerType() {
+				return null;
+			}
+
+			@Override
+			public Type getRawType() {
+				return Collection.class;
+			}
+		};
+		String json = gson.toJson(list, typeToken);
 
 		String dir = Platform.getInstanceLocation().getURL().getPath().substring(1);
 		String pathName = list.iterator().next().getPathName();

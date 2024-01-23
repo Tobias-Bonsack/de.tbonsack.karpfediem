@@ -15,3 +15,5 @@ Service-Component: OSGI-INF/de.tbonsack.karpfediem.utils.gson.LoadServiceImpl.xm
 Automatic-Module-Name: de.tbonsack.karpfediem.utils
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-19
+Provide-Capability: osgi.service;objectClass=de.tbonsack.karpfediem.utils.gson.service.LoadService,
+ osgi.service;objectClass=de.tbonsack.karpfediem.utils.gson.service.SaveService

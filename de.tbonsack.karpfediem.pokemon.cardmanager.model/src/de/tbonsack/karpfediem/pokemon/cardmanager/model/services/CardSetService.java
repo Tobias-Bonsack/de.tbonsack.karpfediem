@@ -18,6 +18,8 @@ public interface CardSetService {
 
 	List<CardSet> getCardSets(String name);
 
+	void init();
+
 	boolean saveCardSet(CardSet cardSet);
 
 }

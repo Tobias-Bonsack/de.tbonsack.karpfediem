@@ -15,11 +15,12 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="3.29.0",
  javax.inject;bundle-version="1.0.0",
  com.google.gson;bundle-version="2.10.1",
  org.eclipse.e4.core.di.extensions;bundle-version="0.18.0",
- org.eclipse.e4.ui.workbench;bundle-version="1.15.100"
+ org.eclipse.e4.ui.workbench;bundle-version="1.15.100",
+ de.tbonsack.karpfediem.utils;bundle-version="1.0.0"
 Service-Component: OSGI-INF/de.tbonsack.karpfediem.pokemon.cardmanager.services.internal.CardContextFunction.xml,
  OSGI-INF/de.tbonsack.karpfediem.pokemon.cardmanager.services.internal.CardsetServiceContextFunction.xml,
  OSGI-INF/de.tbonsack.karpfediem.pokemon.cardmanager.services.internal.PreferenceContextFunction.xml
 Automatic-Module-Name: de.tbonsack.karpfediem.pokemon.cardmanager.services
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-19
-Import-Package: de.tbonsack.karpfediem.utils.gson.service
+Require-Capability: osgi.service;filter:="(objectClass=de.tbonsack.karpfediem.utils.gson.service.LoadService)"

@@ -16,5 +16,7 @@ public interface CardService {
 
 	Collection<Card> getCards(CardSet element);
 
+	void init();
+
 	boolean saveCard(Card card);
 }

@@ -17,6 +17,7 @@ public class CardsetServiceContextFunction extends ContextFunction {
 	@Override
 	public Object compute(IEclipseContext context) {
 		CardSetService service = ContextInjectionFactory.make(CardSetServiceImpl.class, context);
+		service.init();
 		context.get(MApplication.class).getContext().set(CardSetService.class, service);
 		return service;
 	}

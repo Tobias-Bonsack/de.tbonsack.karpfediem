@@ -18,21 +18,16 @@ import de.tbonsack.karpfediem.utils.gson.service.LoadService;
 
 public class CardServiceImpl implements CardService {
 
-	@Inject
-	private static IEventBroker BROKER;
-
-	@Inject
-	private static LoadService LOADER;
-
-	@Inject
-	private static PreferenceService PERF_SERVICE;
-
 	private Map<Integer, Card> _allCards = new HashMap<>();
 
-	public CardServiceImpl() {
-		Collection<Card> cards = LOADER.loadFromGsonArray(Card.PATH + Card.FILE, Card.class);
-		cards.stream().forEach(c -> _allCards.put(c.getId(), c));
-	}
+	@Inject
+	private IEventBroker BROKER;
+
+	@Inject
+	LoadService LOADER;
+
+	@Inject
+	PreferenceService PERF_SERVICE;
 
 	@Override
 	public Card createCard() {
@@ -55,6 +50,14 @@ public class CardServiceImpl implements CardService {
 				.map(_allCards::get).filter(i -> i != null)//
 				.map(i -> (Card) i.clone())//
 				.collect(Collectors.toList());
+	}
+
+	@Override
+	public void init() {
+		Collection<Card> cards = LOADER.loadFromGsonArray(Card.PATH + Card.FILE, Card.class);
+		for (Card card : cards) {
+			_allCards.put(card.getId(), card);
+		}
 	}
 
 	@Override
