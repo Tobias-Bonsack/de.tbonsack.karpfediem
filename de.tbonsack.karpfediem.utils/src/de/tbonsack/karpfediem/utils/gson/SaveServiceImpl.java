@@ -37,7 +37,7 @@ public class SaveServiceImpl implements SaveService {
 		try {
 			Files.write(path, json.getBytes(), StandardOpenOption.CREATE);
 		} catch (IOException e) {
-			Platform.getLog(getClass()).error("Unable to Safe");
+			Platform.getLog(getClass()).error("Unable to Safe: " + path.toString(), e);
 		}
 	}
 
@@ -55,7 +55,7 @@ public class SaveServiceImpl implements SaveService {
 		try {
 			Files.write(path, json.getBytes(), StandardOpenOption.CREATE);
 		} catch (IOException e) {
-			Platform.getLog(getClass()).error("Unable to Safe");
+			Platform.getLog(getClass()).error("Unable to Safe: " + path.toString(), e);
 		}
 	}
 }
