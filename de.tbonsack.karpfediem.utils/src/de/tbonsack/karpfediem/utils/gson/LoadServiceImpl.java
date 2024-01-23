@@ -19,7 +19,7 @@ public class LoadServiceImpl implements LoadService {
 	private String getJson(String path) {
 		String dir = Platform.getInstanceLocation().getURL().getPath().substring(1);
 		String json = "";
-		Path pathToJson = Paths.get(dir + path);
+		Path pathToJson = Paths.get(dir + path + ".json");
 		try {
 			json = Files.readString(pathToJson);
 		} catch (IOException e) {

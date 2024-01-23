@@ -14,6 +14,7 @@ import de.tbonsack.karpfediem.pokemon.cardmanager.model.objects.CardSet;
 import de.tbonsack.karpfediem.pokemon.cardmanager.model.services.CardService;
 import de.tbonsack.karpfediem.pokemon.cardmanager.model.services.PreferenceService;
 import de.tbonsack.karpfediem.utils.gson.service.ISerializable;
+import de.tbonsack.karpfediem.utils.gson.service.LoadService;
 
 public class CardServiceImpl implements CardService {
 
@@ -21,9 +22,17 @@ public class CardServiceImpl implements CardService {
 	private static IEventBroker BROKER;
 
 	@Inject
+	private static LoadService LOADER;
+
+	@Inject
 	private static PreferenceService PERF_SERVICE;
 
 	private Map<Integer, Card> _allCards = new HashMap<>();
+
+	public CardServiceImpl() {
+		Collection<Card> cards = LOADER.loadFromGsonArray(Card.PATH + Card.FILE, Card.class);
+		cards.stream().forEach(c -> _allCards.put(c.getId(), c));
+	}
 
 	@Override
 	public Card createCard() {

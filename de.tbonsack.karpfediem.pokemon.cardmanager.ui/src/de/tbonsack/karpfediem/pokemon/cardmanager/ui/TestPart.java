@@ -16,7 +16,6 @@ import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
-import org.eclipse.jface.widgets.WidgetFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
@@ -78,15 +77,7 @@ public class TestPart {
 	public void test(Composite parent) {
 		GridLayoutFactory.fillDefaults().applyTo(parent);
 
-		createTestData();
-
-		WidgetFactory.button(SWT.None).text("Test button for Safe of all")//
-				.data(GridDataFactory.fillDefaults().create())//
-				.onSelect((event) -> {
-					_saveService.safeAsGson(_setService.getAllSaveableSets(), CardSet.class);
-					_saveService.safeAsGson(_cardService.getAllSaveableSets(), Card.class);
-				})//
-				.create(parent);
+//		createTestData();
 
 		_tableViewer = new TableViewer(parent, SWT.None);
 		_tableViewer.setContentProvider(ArrayContentProvider.getInstance());

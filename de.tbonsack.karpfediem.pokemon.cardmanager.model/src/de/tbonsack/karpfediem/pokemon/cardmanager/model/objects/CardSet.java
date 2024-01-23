@@ -6,6 +6,10 @@ import java.util.Set;
 
 public class CardSet extends ABasicCardObject {
 
+	public static final String FILE = "cardsets";
+
+	public static final String PATH = "pokemon/cardmanager/";
+
 	private static final long serialVersionUID = 1L;
 
 	private Set<Integer> _cards = new HashSet<>();
@@ -35,12 +39,12 @@ public class CardSet extends ABasicCardObject {
 
 	@Override
 	public String getFileName() {
-		return "cardsets";
+		return FILE;
 	}
 
 	@Override
 	public String getPathName() {
-		return "pokemon/cardmanager/";
+		return PATH;
 	}
 
 	public void setCards(Set<Integer> cards) {

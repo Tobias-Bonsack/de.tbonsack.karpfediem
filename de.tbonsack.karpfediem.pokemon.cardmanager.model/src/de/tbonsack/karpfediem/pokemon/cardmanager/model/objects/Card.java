@@ -6,6 +6,10 @@ import java.util.List;
 
 public class Card extends ABasicCardObject {
 
+	public static final String FILE = "cards";
+
+	public static final String PATH = "pokemon/cardmanager/";
+
 	/**
 	 *
 	 */
@@ -46,7 +50,7 @@ public class Card extends ABasicCardObject {
 
 	@Override
 	public String getFileName() {
-		return "cards";
+		return FILE;
 	}
 
 	public int getNumber() {
@@ -59,7 +63,7 @@ public class Card extends ABasicCardObject {
 
 	@Override
 	public String getPathName() {
-		return "pokemon/cardmanager/";
+		return PATH;
 	}
 
 	public boolean isOwned() {

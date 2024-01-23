@@ -1,5 +1,6 @@
 package de.tbonsack.karpfediem.pokemon.cardmanager.services.impls;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,7 @@ import de.tbonsack.karpfediem.pokemon.cardmanager.model.objects.CardSet;
 import de.tbonsack.karpfediem.pokemon.cardmanager.model.services.CardSetService;
 import de.tbonsack.karpfediem.pokemon.cardmanager.model.services.PreferenceService;
 import de.tbonsack.karpfediem.utils.gson.service.ISerializable;
+import de.tbonsack.karpfediem.utils.gson.service.LoadService;
 
 public class CardSetServiceImpl implements CardSetService {
 
@@ -21,9 +23,17 @@ public class CardSetServiceImpl implements CardSetService {
 	private static IEventBroker BROKER;
 
 	@Inject
+	private static LoadService LOADER;
+
+	@Inject
 	private static PreferenceService PERF_SERVICE;
 
 	private Map<Integer, CardSet> _sets = new HashMap<>();
+
+	public CardSetServiceImpl() {
+		Collection<CardSet> cardSets = LOADER.loadFromGsonArray(CardSet.PATH + CardSet.FILE, CardSet.class);
+		cardSets.stream().forEach(cs -> _sets.put(cs.getId(), cs));
+	}
 
 	@Override
 	public CardSet createCardSet() {
