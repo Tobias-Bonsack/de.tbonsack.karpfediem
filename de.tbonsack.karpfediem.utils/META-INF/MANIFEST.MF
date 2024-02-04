@@ -11,7 +11,8 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="3.29.0",
  org.eclipse.osgi.services;bundle-version="3.11.100",
  com.google.gson;bundle-version="2.10.1"
 Service-Component: OSGI-INF/de.tbonsack.karpfediem.utils.gson.LoadServiceImpl.xml,
- OSGI-INF/de.tbonsack.karpfediem.utils.gson.SaveServiceImpl.xml
+ OSGI-INF/de.tbonsack.karpfediem.utils.gson.SaveServiceImpl.xml,
+ OSGI-INF/de.tbonsack.karpfediem.utils.image.ImageLoaderServiceImpl.xml
 Automatic-Module-Name: de.tbonsack.karpfediem.utils
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-19

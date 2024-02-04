@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="de.tbonsack.karpfediem.utils.image.ImageLoaderServiceImpl">
+   <service>
+      <provide interface="de.tbonsack.karpfediem.utils.image.service.ImageLoaderService"/>
+   </service>
+   <implementation class="de.tbonsack.karpfediem.utils.image.ImageLoaderServiceImpl"/>
+</scr:component>
