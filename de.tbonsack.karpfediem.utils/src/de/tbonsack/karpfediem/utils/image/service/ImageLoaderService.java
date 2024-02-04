@@ -5,7 +5,7 @@ import org.eclipse.swt.graphics.Image;
 
 public interface ImageLoaderService {
 
-	ImageDescriptor getImageDescriptor(Class<?> clazz, String path);
+	ImageDescriptor getImageDescriptor(Class<?> clazz, String path, boolean isAbsolutPath);
 
 	Image resize(Image image, int width, int height);
 

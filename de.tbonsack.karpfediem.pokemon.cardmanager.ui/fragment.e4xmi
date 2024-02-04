@@ -4,10 +4,11 @@
     <elements xsi:type="advanced:Perspective" xmi:id="_JAYxwK2HEe61ObZRyAAysw" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.perspective.cardmanager" label="%perspective_label">
       <children xsi:type="basic:PartSashContainer" xmi:id="_85ZVUK_4Ee6GLf5JcDBYlw" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.partsashcontainer.0">
         <children xsi:type="basic:PartStack" xmi:id="_KnG38K2HEe61ObZRyAAysw" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.partstack.0">
-          <children xsi:type="basic:Part" xmi:id="_K-NwYK2HEe61ObZRyAAysw" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.part.testlabel" contributionURI="bundleclass://de.tbonsack.karpfediem.pokemon.cardmanager.ui/de.tbonsack.karpfediem.pokemon.cardmanager.ui.TestPart" label="%part_testlabel"/>
+          <children xsi:type="basic:Part" xmi:id="_n-JAMMN8Ee6dCaiKnEO82w" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.part.part_cardset" contributionURI="bundleclass://de.tbonsack.karpfediem.pokemon.cardmanager.ui/de.tbonsack.karpfediem.pokemon.cardmanager.ui.parts.CardSetTableViewerPart" label="%part_cardset"/>
         </children>
         <children xsi:type="basic:PartStack" xmi:id="_-YqIoK_4Ee6GLf5JcDBYlw" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.partstack.1">
           <children xsi:type="basic:Part" xmi:id="_DecWsK_5Ee6GLf5JcDBYlw" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.part.testcardset" contributionURI="bundleclass://de.tbonsack.karpfediem.pokemon.cardmanager.ui/de.tbonsack.karpfediem.pokemon.cardmanager.ui.testcardpart" label="%part_testlabel"/>
+          <children xsi:type="basic:Part" xmi:id="_K-NwYK2HEe61ObZRyAAysw" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.part.testlabel" contributionURI="bundleclass://de.tbonsack.karpfediem.pokemon.cardmanager.ui/de.tbonsack.karpfediem.pokemon.cardmanager.ui.TestPart" label="%part_testlabel"/>
         </children>
       </children>
     </elements>

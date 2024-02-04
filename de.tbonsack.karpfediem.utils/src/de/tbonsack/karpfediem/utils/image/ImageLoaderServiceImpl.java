@@ -18,8 +18,8 @@ import de.tbonsack.karpfediem.utils.image.service.ImageLoaderService;
 public class ImageLoaderServiceImpl implements ImageLoaderService {
 
 	@Override
-	public ImageDescriptor getImageDescriptor(Class<?> clazz, String path) {
-		String dir = Platform.getInstanceLocation().getURL().getPath().substring(1);
+	public ImageDescriptor getImageDescriptor(Class<?> clazz, String path, boolean isAbsolutPath) {
+		String dir = isAbsolutPath ? "" : Platform.getInstanceLocation().getURL().getPath().substring(1);
 		URL url = null;
 
 		try {

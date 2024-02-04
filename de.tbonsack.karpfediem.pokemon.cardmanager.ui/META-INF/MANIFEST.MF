@@ -3,16 +3,20 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Ui
 Bundle-SymbolicName: de.tbonsack.karpfediem.pokemon.cardmanager.ui;singleton:=true
 Bundle-Version: 0.0.1
-Import-Package: javax.annotation;version="1.3.5",
- javax.inject;version="1.0.0"
+Import-Package: de.tbonsack.karpfediem.pokemon.cardmanager.translation.i18n,
+ javax.annotation;version="1.3.5",
+ javax.inject;version="1.0.0",
+ org.eclipse.e4.core.services.nls
 Require-Bundle: org.eclipse.e4.ui.model.workbench;bundle-version="2.4.100.v20230801-1255",
  org.eclipse.core.runtime;bundle-version="3.29.0",
  org.eclipse.swt;bundle-version="3.124.100",
  org.eclipse.jface;bundle-version="3.31.0",
  org.eclipse.e4.core.di;bundle-version="1.9.100",
  org.eclipse.e4.ui.di;bundle-version="1.5.100",
+ org.eclipse.e4.core.services,
  de.tbonsack.karpfediem.pokemon.cardmanager.model;bundle-version="1.0.0",
- de.tbonsack.karpfediem.utils
+ de.tbonsack.karpfediem.utils,
+ de.tbonsack.karpfediem.pokemon.cardmanager.events;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-19
 Bundle-ActivationPolicy: lazy
 Model-Fragment: fragment.e4xmi
