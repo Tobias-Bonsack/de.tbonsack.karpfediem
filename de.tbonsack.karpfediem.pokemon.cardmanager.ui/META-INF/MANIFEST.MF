@@ -16,7 +16,8 @@ Require-Bundle: org.eclipse.e4.ui.model.workbench;bundle-version="2.4.100.v20230
  org.eclipse.e4.core.services,
  de.tbonsack.karpfediem.pokemon.cardmanager.model;bundle-version="1.0.0",
  de.tbonsack.karpfediem.utils,
- de.tbonsack.karpfediem.pokemon.cardmanager.events;bundle-version="1.0.0"
+ de.tbonsack.karpfediem.pokemon.cardmanager.events;bundle-version="1.0.0",
+ de.tbonsack.karpfediem.ui;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-19
 Bundle-ActivationPolicy: lazy
 Model-Fragment: fragment.e4xmi

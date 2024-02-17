@@ -12,6 +12,8 @@ import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ControlAdapter;
+import org.eclipse.swt.events.ControlEvent;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 
@@ -36,6 +38,7 @@ public class CardSetTableViewerPart {
 		table.setLinesVisible(true);
 		GridDataFactory.fillDefaults().grab(true, true).applyTo(table);
 
+		// create column for sets
 		var column = new TableViewerColumn(viewer, SWT.None);
 		column.getColumn().setText(messages.name);
 		column.getColumn().setWidth(100);
@@ -44,6 +47,14 @@ public class CardSetTableViewerPart {
 			public String getText(Object element) {
 				var set = (CardSet) element;
 				return set.getName();
+			}
+		});
+
+		// update size of the only column
+		table.addControlListener(new ControlAdapter() {
+			@Override
+			public void controlResized(ControlEvent e) {
+				column.getColumn().setWidth(table.getClientArea().width);
 			}
 		});
 
@@ -68,6 +79,7 @@ public class CardSetTableViewerPart {
 	public void postConstruct(Composite parent, @Translation Messages messages) {
 		GridLayoutFactory.fillDefaults().numColumns(1).applyTo(parent);
 		_tableViewer = createTableViewer(parent, messages);
+
 	}
 
 }

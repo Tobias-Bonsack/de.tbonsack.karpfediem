@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="ASCII"?>
-<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmi:id="_jwvJQK1PEe6wku2n9aRQeA">
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_jwvJQK1PEe6wku2n9aRQeA">
+  <imports xsi:type="commands:Command" xmi:id="_PE3PgM2uEe6-Iuq4wLaGMA" elementId="de.tbonsack.karpfediem.ui.command.createnew"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_WT2JgK1TEe6wku2n9aRQeA" featurename="children" parentElementId="de.tbonsack.karpfediem.ui.perspectivestack.welcome">
     <elements xsi:type="advanced:Perspective" xmi:id="_JAYxwK2HEe61ObZRyAAysw" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.perspective.cardmanager" label="%perspective_label">
-      <children xsi:type="basic:PartSashContainer" xmi:id="_85ZVUK_4Ee6GLf5JcDBYlw" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.partsashcontainer.0">
+      <children xsi:type="basic:PartSashContainer" xmi:id="_85ZVUK_4Ee6GLf5JcDBYlw" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.partsashcontainer.0" horizontal="true">
         <children xsi:type="basic:PartStack" xmi:id="_KnG38K2HEe61ObZRyAAysw" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.partstack.0">
-          <children xsi:type="basic:Part" xmi:id="_n-JAMMN8Ee6dCaiKnEO82w" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.part.part_cardset" contributionURI="bundleclass://de.tbonsack.karpfediem.pokemon.cardmanager.ui/de.tbonsack.karpfediem.pokemon.cardmanager.ui.parts.CardSetTableViewerPart" label="%part_cardset"/>
+          <children xsi:type="basic:Part" xmi:id="_n-JAMMN8Ee6dCaiKnEO82w" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.part.part_cardset" contributionURI="bundleclass://de.tbonsack.karpfediem.pokemon.cardmanager.ui/de.tbonsack.karpfediem.pokemon.cardmanager.ui.parts.CardSetTableViewerPart" label="%part_cardset">
+            <toolbar xmi:id="_BSsqsM2vEe6-Iuq4wLaGMA" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.toolbar.0">
+              <children xsi:type="menu:HandledToolItem" xmi:id="_Ecu9wM2vEe6-Iuq4wLaGMA" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.handledtoolitem.toolitem_set_new" label="%toolitem_set_new" command="_PE3PgM2uEe6-Iuq4wLaGMA"/>
+            </toolbar>
+          </children>
         </children>
         <children xsi:type="basic:PartStack" xmi:id="_-YqIoK_4Ee6GLf5JcDBYlw" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.partstack.1">
           <children xsi:type="basic:Part" xmi:id="_DecWsK_5Ee6GLf5JcDBYlw" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.part.testcardset" contributionURI="bundleclass://de.tbonsack.karpfediem.pokemon.cardmanager.ui/de.tbonsack.karpfediem.pokemon.cardmanager.ui.testcardpart" label="%part_testlabel"/>
           <children xsi:type="basic:Part" xmi:id="_K-NwYK2HEe61ObZRyAAysw" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.part.testlabel" contributionURI="bundleclass://de.tbonsack.karpfediem.pokemon.cardmanager.ui/de.tbonsack.karpfediem.pokemon.cardmanager.ui.TestPart" label="%part_testlabel"/>
         </children>
       </children>
+      <handlers xmi:id="_QJP6IM2tEe6-Iuq4wLaGMA" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.handler.0" contributionURI="bundleclass://de.tbonsack.karpfediem.pokemon.cardmanager.ui/de.tbonsack.karpfediem.pokemon.cardmanager.ui.handler.CreateNewSetHandler" command="_PE3PgM2uEe6-Iuq4wLaGMA"/>
     </elements>
   </fragments>
 </fragment:ModelFragments>
