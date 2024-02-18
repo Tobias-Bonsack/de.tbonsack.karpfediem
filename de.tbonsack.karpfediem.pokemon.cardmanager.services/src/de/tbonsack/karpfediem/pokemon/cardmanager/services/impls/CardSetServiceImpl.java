@@ -11,6 +11,7 @@ import javax.inject.Inject;
 
 import org.eclipse.e4.core.services.events.IEventBroker;
 
+import de.tbonsack.karpfediem.pokemon.cardmanager.events.CardSetEvents;
 import de.tbonsack.karpfediem.pokemon.cardmanager.model.objects.CardSet;
 import de.tbonsack.karpfediem.pokemon.cardmanager.model.services.CardSetService;
 import de.tbonsack.karpfediem.pokemon.cardmanager.model.services.PreferenceService;
@@ -19,13 +20,13 @@ import de.tbonsack.karpfediem.utils.gson.service.LoadService;
 
 public class CardSetServiceImpl implements CardSetService {
 
-	private Map<Integer, CardSet> _sets = new HashMap<>();
+	private static Map<Integer, CardSet> _sets = new HashMap<>();
 
 	@Inject
-	private IEventBroker BROKER;
+	private IEventBroker _broker;
 
 	@Inject
-	private LoadService LOADER;
+	private LoadService _loader;
 
 	@Inject
 	private PreferenceService PERF_SERVICE;
@@ -37,12 +38,19 @@ public class CardSetServiceImpl implements CardSetService {
 
 	@Override
 	public List<ISerializable> getAllSaveableSets() {
-		return _sets.values().stream().map(i -> (ISerializable) i).collect(Collectors.toList());
+		return _sets.values()
+				.stream()
+				.map(i -> (ISerializable) i)
+				.collect(Collectors.toList());
 	}
 
 	@Override
 	public List<CardSet> getAllSets() {
-		return _sets.values().stream().map(i -> i.clone()).map(i -> (CardSet) i).collect(Collectors.toList());
+		return _sets.values()
+				.stream()
+				.map(i -> i.clone())
+				.map(i -> (CardSet) i)
+				.collect(Collectors.toList());
 	}
 
 	@Override
@@ -53,7 +61,8 @@ public class CardSetServiceImpl implements CardSetService {
 
 	@Override
 	public List<CardSet> getCardSets(String name) {
-		return _sets.values().stream()//
+		return _sets.values()
+				.stream()//
 				.filter(i -> name.equalsIgnoreCase(i.getName()))//
 				.map(i -> (CardSet) i.clone())//
 				.collect(Collectors.toList());
@@ -61,13 +70,15 @@ public class CardSetServiceImpl implements CardSetService {
 
 	@Override
 	public void init() {
-		Collection<CardSet> cardSets = LOADER.loadFromGsonArray(CardSet.PATH + CardSet.FILE, CardSet.class);
-		cardSets.stream().forEach(cs -> _sets.put(cs.getId(), cs));
+		Collection<CardSet> cardSets = _loader.loadFromGsonArray(CardSet.PATH + CardSet.FILE, CardSet.class);
+		cardSets.stream()
+				.forEach(cs -> _sets.put(cs.getId(), cs));
 	}
 
 	@Override
 	public boolean saveCardSet(CardSet cardSet) {
 		_sets.put(cardSet.getId(), cardSet);
+		_broker.post(CardSetEvents.cardset_update, cardSet);
 		return true;
 	}
 
