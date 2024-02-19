@@ -1,5 +1,7 @@
 package de.tbonsack.karpfediem.pokemon.cardmanager.ui.dialog;
 
+import java.util.function.Consumer;
+
 import javax.swing.JFileChooser;
 
 import org.eclipse.jface.dialogs.Dialog;
@@ -11,6 +13,8 @@ import org.eclipse.jface.widgets.LabelFactory;
 import org.eclipse.jface.widgets.TextFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
@@ -44,47 +48,60 @@ public class SetCreateDialog extends Dialog {
 		return parent;
 	}
 
-	private void createImagePart(Composite parent) {
-		LabelFactory.newLabel(SWT.None)//
-				.layoutData(GridDataFactory.fillDefaults()
-						.create())//
-				.text(_messages.imgPath)//
-				.create(parent);
+	private void createImageChooser(Composite parent) {
+		GridData layoutData = GridDataFactory.fillDefaults()
+				.grab(true, false)
+				.create();
+		Consumer<SelectionEvent> choosePicture = (event) -> {
+			var fileDialog = new JFileChooser();
+			int showDialog = fileDialog.showDialog(null, _messages.imagechooser_button_name);
 
+			if (showDialog == JFileChooser.APPROVE_OPTION) {
+				_imgPath = fileDialog.getSelectedFile()
+						.getAbsolutePath()
+						.toString();
+			}
+		};
 		ButtonFactory.newButton(SWT.PUSH)
-				.layoutData(GridDataFactory.fillDefaults()
-						.create())
-				.text("file chooser")
-				.onSelect((event) -> {
-					var fileDialog = new JFileChooser();
-					int showDialog = fileDialog.showDialog(null, "Choose");
-
-					if (showDialog == JFileChooser.APPROVE_OPTION) {
-						_imgPath = fileDialog.getSelectedFile()
-								.getAbsolutePath()
-								.toString();
-					}
-				})
+				.layoutData(layoutData)
+				.text(_messages.imagechooser_button_name)
+				.onSelect(choosePicture)
 				.create(parent);
 	}
 
-	private void createNamePart(Composite parent) {
-		LabelFactory.newLabel(SWT.None)//
-				.layoutData(GridDataFactory.fillDefaults()
-						.create())//
-				.text(_messages.name)
-				.create(parent);
+	private void createImagePart(Composite parent) {
+		createLabel(parent, _messages.imgpath);
+		createImageChooser(parent);
+	}
 
+	private GridData createLabel(Composite parent, String text) {
+		GridData layoutData = GridDataFactory.fillDefaults()
+				.create();
+
+		LabelFactory.newLabel(SWT.None)//
+				.layoutData(layoutData)//
+				.text(text)//
+				.create(parent);
+		return layoutData;
+	}
+
+	private void createNamePart(Composite parent) {
+		createLabel(parent, _messages.name);
+		createSetNameText(parent);
+	}
+
+	private void createSetNameText(Composite parent) {
 		ModifyListener modifyListener = (modifyEvent) -> {
 			String name = ((Text) modifyEvent.widget).getText();
 			getButton(IDialogConstants.OK_ID).setEnabled(!name.isBlank());
 			_name = name;
 		};
 
+		GridData layoutData = GridDataFactory.fillDefaults()
+				.grab(true, false)
+				.create();
 		TextFactory.newText(SWT.None)//
-				.layoutData(GridDataFactory.fillDefaults()
-						.grab(false, true)
-						.create())//
+				.layoutData(layoutData)//
 				.onModify(modifyListener)
 				.create(parent);
 	}
