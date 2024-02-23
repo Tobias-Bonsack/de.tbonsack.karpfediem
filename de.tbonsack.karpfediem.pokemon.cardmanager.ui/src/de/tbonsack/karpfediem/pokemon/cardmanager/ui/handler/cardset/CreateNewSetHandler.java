@@ -1,4 +1,4 @@
-package de.tbonsack.karpfediem.pokemon.cardmanager.ui.handler;
+package de.tbonsack.karpfediem.pokemon.cardmanager.ui.handler.cardset;
 
 import javax.inject.Inject;
 

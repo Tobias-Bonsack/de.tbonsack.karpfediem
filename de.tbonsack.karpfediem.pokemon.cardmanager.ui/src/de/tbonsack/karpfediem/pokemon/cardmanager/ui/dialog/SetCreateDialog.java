@@ -17,6 +17,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
@@ -25,6 +26,8 @@ import de.tbonsack.karpfediem.pokemon.cardmanager.translation.i18n.Messages;
 public class SetCreateDialog extends Dialog {
 
 	private String _imgPath = "";
+
+	private Label _imgPathLabel;
 
 	private Messages _messages;
 
@@ -60,6 +63,7 @@ public class SetCreateDialog extends Dialog {
 				_imgPath = fileDialog.getSelectedFile()
 						.getAbsolutePath()
 						.toString();
+				_imgPathLabel.setText(_imgPath);
 			}
 		};
 		ButtonFactory.newButton(SWT.PUSH)
@@ -72,6 +76,18 @@ public class SetCreateDialog extends Dialog {
 	private void createImagePart(Composite parent) {
 		createLabel(parent, _messages.imgpath);
 		createImageChooser(parent);
+		createImagePathLabel(parent);
+	}
+
+	private void createImagePathLabel(Composite parent) {
+		_imgPathLabel = LabelFactory.newLabel(SWT.None)
+				.create(parent);
+
+		GridDataFactory.fillDefaults()
+				.grab(true, false)
+				.span(2, 0)
+				.applyTo(_imgPathLabel);
+
 	}
 
 	private GridData createLabel(Composite parent, String text) {
@@ -112,5 +128,10 @@ public class SetCreateDialog extends Dialog {
 
 	public String getName() {
 		return _name;
+	}
+
+	@Override
+	protected boolean isResizable() {
+		return true;
 	}
 }

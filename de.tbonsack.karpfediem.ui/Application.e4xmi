@@ -15,7 +15,15 @@
     </children>
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu"/>
   </children>
+  <bindingTables xmi:id="_HlhG4NKBEe6u7OfDI_xEpw" elementId="de.tbonsack.karpfediem.ui.bindingtable.0" bindingContext="_d8tLUNKBEe6u7OfDI_xEpw">
+    <bindings xmi:id="_IoSygNKBEe6u7OfDI_xEpw" elementId="de.tbonsack.karpfediem.ui.keybinding.0" keySequence="M1+S" command="_mQcYkNKAEe6u7OfDI_xEpw"/>
+  </bindingTables>
+  <rootContext xmi:id="_d8tLUNKBEe6u7OfDI_xEpw" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="Windows and Dialogs">
+    <children xmi:id="_qgUc4NKBEe6u7OfDI_xEpw" elementId="org.eclipse.ui.contexts.dialog" name="Dialogs"/>
+    <children xmi:id="_skc30NKBEe6u7OfDI_xEpw" elementId="org.eclipse.ui.contexts.window" name="Windows"/>
+  </rootContext>
   <commands xmi:id="_Un_y0M2sEe6-Iuq4wLaGMA" elementId="de.tbonsack.karpfediem.ui.command.createnew" commandName="Create new"/>
+  <commands xmi:id="_mQcYkNKAEe6u7OfDI_xEpw" elementId="de.tbonsack.karpfediem.ui.command.save" commandName="Save"/>
   <addons xmi:id="_6wlLcsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_6wlLc8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_6wlLdMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>

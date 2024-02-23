@@ -17,6 +17,7 @@ import de.tbonsack.karpfediem.pokemon.cardmanager.model.services.CardSetService;
 import de.tbonsack.karpfediem.pokemon.cardmanager.model.services.PreferenceService;
 import de.tbonsack.karpfediem.utils.gson.service.ISerializable;
 import de.tbonsack.karpfediem.utils.gson.service.LoadService;
+import de.tbonsack.karpfediem.utils.gson.service.SaveService;
 
 public class CardSetServiceImpl implements CardSetService {
 
@@ -29,19 +30,14 @@ public class CardSetServiceImpl implements CardSetService {
 	private LoadService _loader;
 
 	@Inject
+	private SaveService _saver;
+
+	@Inject
 	private PreferenceService PERF_SERVICE;
 
 	@Override
 	public CardSet createCardSet() {
 		return new CardSet(PERF_SERVICE.getNextID(), "", "");
-	}
-
-	@Override
-	public List<ISerializable> getAllSaveableSets() {
-		return _sets.values()
-				.stream()
-				.map(i -> (ISerializable) i)
-				.collect(Collectors.toList());
 	}
 
 	@Override
@@ -73,6 +69,17 @@ public class CardSetServiceImpl implements CardSetService {
 		Collection<CardSet> cardSets = _loader.loadFromGsonArray(CardSet.PATH + CardSet.FILE, CardSet.class);
 		cardSets.stream()
 				.forEach(cs -> _sets.put(cs.getId(), cs));
+	}
+
+	@Override
+	public boolean saveAllSets() {
+		List<ISerializable> collect = _sets.values()
+				.stream()
+				.map(i -> (ISerializable) i)
+				.collect(Collectors.toList());
+
+		_saver.safeAsGson(collect, CardSet.class);
+		return true;
 	}
 
 	@Override
