@@ -10,4 +10,8 @@ public class Messages {
 
 	public String name = "name";
 
+	public String set_delete_message = "set_delete_message";
+
+	public String set_delete_title = "set_delete_title";
+
 }

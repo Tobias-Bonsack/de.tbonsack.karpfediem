@@ -9,6 +9,8 @@ public interface CardSetService {
 
 	CardSet createCardSet();
 
+	boolean delete(CardSet cardSet);
+
 	List<CardSet> getAllSets();
 
 	Optional<CardSet> getCardSet(int id);

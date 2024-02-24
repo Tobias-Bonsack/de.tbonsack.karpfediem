@@ -87,6 +87,12 @@ public class CardSetTableViewerPart {
 		return viewer;
 	}
 
+	@Inject
+	@Optional
+	private void deleteCardSetEvent(@UIEventTopic(CardSetEvents.cardset_delete) CardSet cardSet) {
+		updateCardSetInput(cardSet);
+	}
+
 	@PostConstruct
 	public void postConstruct(MPart part, Composite parent, @Translation Messages messages) {
 		_part = part;
@@ -100,11 +106,14 @@ public class CardSetTableViewerPart {
 	@Inject
 	@Optional
 	private void updateCardSetEvent(@UIEventTopic(CardSetEvents.cardset_update) CardSet cardSet) {
+		updateCardSetInput(cardSet);
+	}
+
+	private void updateCardSetInput(CardSet cardSet) {
 		if (cardSet == null)
 			return;
 		_tableViewer.setInput(_setService.getAllSets());
 		_part.setDirty(true);
-
 	}
 
 }

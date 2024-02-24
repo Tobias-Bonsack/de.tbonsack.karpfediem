@@ -14,6 +14,8 @@ public interface CardSetEvents {
 	 */
 	String cardset_all = "cardset/*";
 
+	String cardset_delete = "cardset/delete";
+
 	String cardset_select = "cardset/select";
 
 	String cardset_update = "cardset/update";

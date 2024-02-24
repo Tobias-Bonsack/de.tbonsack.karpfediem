@@ -41,6 +41,19 @@ public class CardSetServiceImpl implements CardSetService {
 	}
 
 	@Override
+	public boolean delete(CardSet cardSet) {
+		if (cardSet == null)
+			return false;
+
+		CardSet removedSet = _sets.remove(cardSet.getId());
+		if (removedSet == null)
+			return false;
+
+		_broker.post(CardSetEvents.cardset_delete, removedSet);
+		return true;
+	}
+
+	@Override
 	public List<CardSet> getAllSets() {
 		return _sets.values()
 				.stream()
