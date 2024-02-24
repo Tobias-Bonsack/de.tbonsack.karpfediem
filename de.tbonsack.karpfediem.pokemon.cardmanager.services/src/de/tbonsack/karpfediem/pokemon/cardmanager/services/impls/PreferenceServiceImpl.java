@@ -29,7 +29,7 @@ public class PreferenceServiceImpl implements PreferenceService {
 			_node.putLong(ID_COUNT, _idCount);
 			try {
 				_node.flush();
-				_log.info("Flush prefs complete");
+				_log.info("Create new ID counter");
 			} catch (BackingStoreException e) {
 				_log.error("Can't flush prefs", e);
 			}
@@ -40,6 +40,13 @@ public class PreferenceServiceImpl implements PreferenceService {
 	@Override
 	public int getNextID() {
 		_node.putLong(ID_COUNT, ++_idCount);
+		try {
+			_node.flush();
+			_log.info("New ID issued");
+		} catch (BackingStoreException e) {
+			_log.error("Can't flush prefs", e);
+
+		}
 		return _idCount;
 	}
 
