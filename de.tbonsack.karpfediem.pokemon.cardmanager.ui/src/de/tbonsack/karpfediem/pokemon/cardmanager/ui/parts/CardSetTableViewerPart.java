@@ -47,10 +47,9 @@ public class CardSetTableViewerPart {
 
 		// create column for sets
 		var column = new TableViewerColumn(viewer, SWT.None);
-		column.getColumn()
-				.setText(messages.name);
-		column.getColumn()
-				.setWidth(100);
+		var tableColumn = column.getColumn();
+		tableColumn.setText(messages.name);
+		tableColumn.setWidth(100);
 		column.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
@@ -63,8 +62,7 @@ public class CardSetTableViewerPart {
 		table.addControlListener(new ControlAdapter() {
 			@Override
 			public void controlResized(ControlEvent e) {
-				column.getColumn()
-						.setWidth(table.getClientArea().width);
+				tableColumn.setWidth(table.getClientArea().width);
 			}
 		});
 

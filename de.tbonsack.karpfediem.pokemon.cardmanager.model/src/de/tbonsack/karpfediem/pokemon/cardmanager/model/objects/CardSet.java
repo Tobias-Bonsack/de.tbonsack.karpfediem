@@ -23,7 +23,8 @@ public class CardSet extends ABasicCardObject {
 	}
 
 	public void addCards(Collection<Integer> cards) {
-		cards.stream().forEach(this::addCard);
+		cards.stream()
+				.forEach(this::addCard);
 	}
 
 	@Override

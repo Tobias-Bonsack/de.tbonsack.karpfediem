@@ -6,15 +6,22 @@
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_WT2JgK1TEe6wku2n9aRQeA" featurename="children" parentElementId="de.tbonsack.karpfediem.ui.perspectivestack.welcome">
     <elements xsi:type="advanced:Perspective" xmi:id="_JAYxwK2HEe61ObZRyAAysw" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.perspective.cardmanager" label="%perspective_label">
       <children xsi:type="basic:PartSashContainer" xmi:id="_85ZVUK_4Ee6GLf5JcDBYlw" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.partsashcontainer.0" horizontal="true">
-        <children xsi:type="basic:PartStack" xmi:id="_KnG38K2HEe61ObZRyAAysw" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.partstack.0">
-          <children xsi:type="basic:Part" xmi:id="_n-JAMMN8Ee6dCaiKnEO82w" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.part.part_cardset" contributionURI="bundleclass://de.tbonsack.karpfediem.pokemon.cardmanager.ui/de.tbonsack.karpfediem.pokemon.cardmanager.ui.parts.CardSetTableViewerPart" label="%part_cardset">
-            <handlers xmi:id="_FoRFINKDEe6u7OfDI_xEpw" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.handler.1" contributionURI="bundleclass://de.tbonsack.karpfediem.pokemon.cardmanager.ui/de.tbonsack.karpfediem.pokemon.cardmanager.ui.handler.cardset.SafeCardSetHandler" command="_s2MkkNKAEe6u7OfDI_xEpw"/>
-            <handlers xmi:id="_QJP6IM2tEe6-Iuq4wLaGMA" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.handler.0" contributionURI="bundleclass://de.tbonsack.karpfediem.pokemon.cardmanager.ui/de.tbonsack.karpfediem.pokemon.cardmanager.ui.handler.cardset.CreateNewSetHandler" command="_PE3PgM2uEe6-Iuq4wLaGMA"/>
-            <handlers xmi:id="_NHEF0NMvEe6pNugYvlezkQ" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.handler.2" contributionURI="bundleclass://de.tbonsack.karpfediem.pokemon.cardmanager.ui/de.tbonsack.karpfediem.pokemon.cardmanager.ui.handler.cardset.DeleteCardSetHandler" command="_KP984NMvEe6pNugYvlezkQ"/>
-            <toolbar xmi:id="_BSsqsM2vEe6-Iuq4wLaGMA" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.toolbar.0">
-              <children xsi:type="menu:HandledToolItem" xmi:id="_Ecu9wM2vEe6-Iuq4wLaGMA" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.handledtoolitem.toolitem_set_new" label="%toolitem_set_new" command="_PE3PgM2uEe6-Iuq4wLaGMA"/>
-              <children xsi:type="menu:HandledToolItem" xmi:id="_PaW-INMvEe6pNugYvlezkQ" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.handledtoolitem.toolitem_set_delete" label="%toolitem_set_delete" command="_KP984NMvEe6pNugYvlezkQ"/>
-            </toolbar>
+        <children xsi:type="basic:PartSashContainer" xmi:id="_xOeMENPjEe68ApAbrMQ-OQ" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.partsashcontainer.1" horizontal="true">
+          <children xsi:type="basic:PartStack" xmi:id="_KnG38K2HEe61ObZRyAAysw" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.partstack.0">
+            <children xsi:type="basic:Part" xmi:id="_n-JAMMN8Ee6dCaiKnEO82w" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.part.part_cardset" contributionURI="bundleclass://de.tbonsack.karpfediem.pokemon.cardmanager.ui/de.tbonsack.karpfediem.pokemon.cardmanager.ui.parts.CardSetTableViewerPart" label="%part_cardset">
+              <handlers xmi:id="_FoRFINKDEe6u7OfDI_xEpw" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.handler.1" contributionURI="bundleclass://de.tbonsack.karpfediem.pokemon.cardmanager.ui/de.tbonsack.karpfediem.pokemon.cardmanager.ui.handler.cardset.SafeCardSetHandler" command="_s2MkkNKAEe6u7OfDI_xEpw"/>
+              <handlers xmi:id="_QJP6IM2tEe6-Iuq4wLaGMA" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.handler.0" contributionURI="bundleclass://de.tbonsack.karpfediem.pokemon.cardmanager.ui/de.tbonsack.karpfediem.pokemon.cardmanager.ui.handler.cardset.CreateNewSetHandler" command="_PE3PgM2uEe6-Iuq4wLaGMA"/>
+              <handlers xmi:id="_NHEF0NMvEe6pNugYvlezkQ" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.handler.2" contributionURI="bundleclass://de.tbonsack.karpfediem.pokemon.cardmanager.ui/de.tbonsack.karpfediem.pokemon.cardmanager.ui.handler.cardset.DeleteCardSetHandler" command="_KP984NMvEe6pNugYvlezkQ"/>
+              <toolbar xmi:id="_BSsqsM2vEe6-Iuq4wLaGMA" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.toolbar.0">
+                <children xsi:type="menu:HandledToolItem" xmi:id="_Ecu9wM2vEe6-Iuq4wLaGMA" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.handledtoolitem.toolitem_set_new" label="%toolitem_set_new" command="_PE3PgM2uEe6-Iuq4wLaGMA"/>
+                <children xsi:type="menu:HandledToolItem" xmi:id="_PaW-INMvEe6pNugYvlezkQ" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.handledtoolitem.toolitem_set_delete" label="%toolitem_set_delete" command="_KP984NMvEe6pNugYvlezkQ"/>
+              </toolbar>
+            </children>
+          </children>
+          <children xsi:type="basic:PartStack" xmi:id="_zNzmkNPjEe68ApAbrMQ-OQ" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.partstack.2">
+            <children xsi:type="basic:Part" xmi:id="_zrTa4NPjEe68ApAbrMQ-OQ" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.part." contributionURI="bundleclass://de.tbonsack.karpfediem.pokemon.cardmanager.ui/de.tbonsack.karpfediem.pokemon.cardmanager.ui.parts.CardTableViewerPart" label="%part_cardtree">
+              <toolbar xmi:id="_n6RnYNPkEe68ApAbrMQ-OQ" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.toolbar.1"/>
+            </children>
           </children>
         </children>
         <children xsi:type="basic:PartStack" xmi:id="_-YqIoK_4Ee6GLf5JcDBYlw" elementId="de.tbonsack.karpfediem.pokemon.cardmanager.ui.partstack.1">

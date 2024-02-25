@@ -18,14 +18,20 @@ import de.tbonsack.karpfediem.utils.image.service.ImageLoaderService;
 public class ImageLoaderServiceImpl implements ImageLoaderService {
 
 	@Override
-	public ImageDescriptor getImageDescriptor(Class<?> clazz, String path, boolean isAbsolutPath) {
-		String dir = isAbsolutPath ? "" : Platform.getInstanceLocation().getURL().getPath().substring(1);
+	public ImageDescriptor getImageDescriptor(String path, boolean isAbsolutPath) {
+		String dir = isAbsolutPath ? ""
+				: Platform.getInstanceLocation()
+						.getURL()
+						.getPath()
+						.substring(1);
 		URL url = null;
 
 		try {
-			url = new File(dir + path).toURI().toURL();
+			url = new File(dir + path).toURI()
+					.toURL();
 		} catch (MalformedURLException e) {
-			Platform.getLog(getClass()).error("Can not load: " + path, e);
+			Platform.getLog(getClass())
+					.error("Can not load: " + path, e);
 		}
 
 		return ImageDescriptor.createFromURL(url);
@@ -39,7 +45,7 @@ public class ImageLoaderServiceImpl implements ImageLoaderService {
 		gc.setInterpolation(SWT.HIGH);
 		gc.drawImage(image, 0, 0, image.getBounds().width, image.getBounds().height, 0, 0, width, height);
 		gc.dispose();
-//      image.dispose(); // caller need to do this
+		//      image.dispose(); // caller need to do this
 		return scaled;
 	}
 
