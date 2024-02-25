@@ -65,7 +65,7 @@ public class TestPart {
 				cardSet.addCard(card.getId());
 				card.addToSet(cardSet.getId());
 
-				_cardService.saveCard(card);
+				_cardService.save(card);
 			}
 		} catch (Exception e) {
 		}

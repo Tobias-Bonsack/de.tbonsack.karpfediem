@@ -15,6 +15,7 @@ import org.eclipse.swt.widgets.Shell;
 
 import de.tbonsack.karpfediem.pokemon.cardmanager.events.CardSetEvents;
 import de.tbonsack.karpfediem.pokemon.cardmanager.model.objects.CardSet;
+import de.tbonsack.karpfediem.pokemon.cardmanager.model.services.CardService;
 import de.tbonsack.karpfediem.pokemon.cardmanager.model.services.CardSetService;
 import de.tbonsack.karpfediem.pokemon.cardmanager.translation.i18n.Messages;
 
@@ -23,14 +24,23 @@ public class DeleteCardSetHandler {
 	@Inject
 	IEventBroker _broker;
 
+	@Inject
+	CardService _cardService;
+
 	CardSet _curCardSetSelection = null;
 
 	@Inject
-	CardSetService _service;
+	CardSetService _setService;
 
 	@CanExecute
 	public boolean canExecute() {
 		return _curCardSetSelection != null;
+	}
+
+	private void checkCondition() {
+		Selector s = element -> element.getElementId()
+				.equals("de.tbonsack.karpfediem.pokemon.cardmanager.ui.handledtoolitem.toolitem_set_delete");
+		_broker.post(UIEvents.REQUEST_ENABLEMENT_UPDATE_TOPIC, s);
 	}
 
 	@Execute
@@ -40,17 +50,18 @@ public class DeleteCardSetHandler {
 		if (!isToDelete)
 			return;
 
-		_service.delete(_curCardSetSelection);
+		_setService.delete(_curCardSetSelection);
+		_cardService.removeAllFrom(_curCardSetSelection);
+
 		_curCardSetSelection = null;
+		checkCondition();
 	}
 
 	@Inject
 	@Optional
 	private void selectCardSetEvent(@UIEventTopic(CardSetEvents.cardset_select) CardSet cardSet) {
 		_curCardSetSelection = cardSet;
-		Selector s = element -> element.getElementId()
-				.equals("de.tbonsack.karpfediem.pokemon.cardmanager.ui.handledtoolitem.toolitem_set_delete");
-		_broker.post(UIEvents.REQUEST_ENABLEMENT_UPDATE_TOPIC, s);
+		checkCondition();
 
 	}
 

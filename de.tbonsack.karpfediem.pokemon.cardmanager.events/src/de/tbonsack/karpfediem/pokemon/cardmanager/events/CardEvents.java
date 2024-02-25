@@ -1,6 +1,6 @@
 package de.tbonsack.karpfediem.pokemon.cardmanager.events;
 
-public interface CardTopicEvents {
+public interface CardEvents {
 
 	String card = "card";
 
@@ -8,4 +8,10 @@ public interface CardTopicEvents {
 	 * Only for registration, no event send possible
 	 */
 	String card_all = "card/*";
+
+	String card_delete = "card/delete";
+
+	String card_select = "card/select";
+
+	String card_update = "card/update";
 }

@@ -10,6 +10,8 @@ public interface CardService {
 
 	Card createCard();
 
+	boolean delete(Card card);
+
 	Collection<ISerializable> getAllSaveableSets();
 
 	Card getCard(int globalID);
@@ -18,5 +20,7 @@ public interface CardService {
 
 	void init();
 
-	boolean saveCard(Card card);
+	void removeAllFrom(CardSet curCardSetSelection);
+
+	boolean save(Card card);
 }
