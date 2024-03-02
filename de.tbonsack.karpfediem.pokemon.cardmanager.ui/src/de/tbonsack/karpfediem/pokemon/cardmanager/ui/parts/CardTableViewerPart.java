@@ -15,11 +15,12 @@ import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.CellLabelProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
+import org.eclipse.jface.viewers.ILazyContentProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
+import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
@@ -34,6 +35,30 @@ import de.tbonsack.karpfediem.pokemon.cardmanager.translation.i18n.Messages;
 import de.tbonsack.karpfediem.utils.image.service.ImageLoaderService;
 
 public class CardTableViewerPart {
+
+	private static class LazyContentProvider implements ILazyContentProvider {
+		private Card[] elements;
+		private TableViewer viewer;
+
+		public LazyContentProvider(TableViewer viewer) {
+			this.viewer = viewer;
+		}
+
+		@Override
+		public void dispose() {
+		}
+
+		@Override
+		public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
+			this.elements = (Card[]) newInput;
+		}
+
+		@Override
+		public void updateElement(int index) {
+			viewer.replace(elements[index], index);
+		}
+
+	}
 
 	@Inject
 	IEventBroker _broker;
@@ -59,7 +84,6 @@ public class CardTableViewerPart {
 			Image image = imageDescriptor.createImage();
 			Image resize = _imageLoader.resize(image, 50, 50);
 			image.dispose();
-			_images.add(resize);
 			return resize;
 		}
 
@@ -118,9 +142,9 @@ public class CardTableViewerPart {
 	}
 
 	private TableViewer createTableViewer(Composite parent, Messages messages) {
-		var viewer = new TableViewer(parent);
-		viewer.setContentProvider(ArrayContentProvider.getInstance());
-
+		var viewer = new TableViewer(parent, SWT.VIRTUAL);
+		viewer.setContentProvider(new LazyContentProvider(viewer));
+		viewer.setUseHashlookup(true);
 		createTable(viewer, messages);
 
 		viewer.addSelectionChangedListener((event) -> {
@@ -146,13 +170,17 @@ public class CardTableViewerPart {
 	private void selectSetEvent(@UIEventTopic(CardSetEvents.cardset_select) CardSet cardset) {
 		if (cardset == null || cardset.equals(_cardset))
 			return;
-		_cardset = cardset;
+		_tableViewer.setInput(new Card[0]);
+		_tableViewer.setItemCount(0);
 
+		_cardset = cardset;
 		_images.stream()
-				.forEach(i -> i.dispose());
+				.forEach(image -> image.dispose());
 		_images.clear();
 
-		Collection<Card> cards = _cardService.getCards(cardset);
-		_tableViewer.setInput(cards.toArray());
+		Collection<Card> cards2 = _cardService.getCards(cardset);
+		Card[] cards = cards2.toArray(new Card[cards2.size()]);
+		_tableViewer.setInput(cards);
+		_tableViewer.setItemCount(cards.length);
 	}
 }
